@@ -13,22 +13,21 @@ header('Location: application.php');
 
     <link type="text/css" rel="stylesheet" href="css/animate.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
-	
-        <!--<script type="text/javascript" src="js/init.js"></script>-->
         <script src="js/jquery.min.js"></script>
 <script src="js/jquery.ui.shake.js"></script>
+    <script src="js/jquery.md5.js"></script>
 
    
-    <title>KKCH Patient Management : Login</title>
+    <title>Stealth Gaming Lounge : Login</title>
 </head>
     <body class="blue">  
 <script>
 $(document).ready(function() 
 {
 
-$('#login').click(function() { 
+$('#loginBtn').click(function() { 
 var username=$("#user_name").val();
-var password=$("#password").val();
+var password=$.md5($("#password").val());
 
 
 $.ajax({
@@ -44,7 +43,7 @@ window.location.href = "application.php";
 else
 {
 //Shake animation effect.
-$('#loginCard').shake();
+$("#loginCard").shake();
 $("#error").html("<span style='color:#cc0000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error:</span> Invalid username or password. ");
 }
 }
@@ -55,14 +54,19 @@ return false;
 });
 
 });
-</script>	
+</script>	<div class="container">
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        
           <div class="row" id="loginrow">
-    <div class="col s12 m6 l2 offset-l5">
-      <div id="loginCard" class="card animated fadeInDown">
+    <div >
+      <div id="loginCard" class="col s4 offset-s4 card animated fadeInDown">
           
         <div class="card-content">
             
-                <span class="card-title" id="logintitle">Log In</span>
+                <span class="card-title black-text">Log In</span>
             <form id="loginForm" class="col s12" method="post" action="#">
           <div class="row">
         <div class="input-field col s12">
@@ -80,10 +84,10 @@ return false;
             <div class="row">
 			<div id="error">
 </div>	
-        <div class="card-action">            
-            <button class="btn waves-effect waves-light" id="login" type="button">Submit
+        <div class="card-action">       
+            <button class="btn waves-effect waves-light" id="loginBtn" type="button">Submit
     <i class="mdi-content-send right"></i>
-                </button>
+            </button>
                 </div></div>
             </form></div></div></div>
        <!-- <script type="text/javascript" src="js/prism.js"></script>-->

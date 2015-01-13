@@ -2,8 +2,8 @@
 session_start();
 $username = $_POST['name'];
 $password = $_POST['pwd'];
-$mysqli=mysqli_connect('localhost','root','password','kkch');
-$query = "SELECT uname FROM users WHERE uname='$username' AND pass='$password'";
+$mysqli=mysqli_connect('localhost','root','','stealth');
+$query = "SELECT uname FROM users WHERE uname='$username' AND password='$password'";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $num_row = mysqli_num_rows($result);
 

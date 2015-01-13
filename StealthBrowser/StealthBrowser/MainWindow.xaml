@@ -43,8 +43,7 @@
             <awe:WebControl
 				x:Name="webControl"
 				NativeView="{Binding NativeView, ElementName=webWindow}"
-				WebSession="{Binding Source={StaticResource webSession}}"
-				Source="http://www.google.com" Grid.ColumnSpan="2" Grid.RowSpan="2">
+				Source="http://localhost" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <awe:WebControl.DataContext>
                     <StealthBrowser:MainWindow/>
                 </awe:WebControl.DataContext>

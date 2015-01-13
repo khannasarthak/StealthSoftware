@@ -12,3 +12,7 @@ c:\users\sarthak khanna\documents\visual studio 2013\Projects\StealthBrowser\Ste
 c:\users\sarthak khanna\documents\visual studio 2013\Projects\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.exe
 c:\users\sarthak khanna\documents\visual studio 2013\Projects\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.xml
 c:\users\sarthak khanna\documents\visual studio 2013\Projects\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.pdb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\bin\Debug\StealthBrowser.exe.config
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.exe
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.xml
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.pdb

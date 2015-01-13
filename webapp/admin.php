@@ -33,8 +33,25 @@
         </ul>
       </div>
       <div id="test1" class="col s12">
-        
-      </div>
+          <div class="row">
+              <div class="col s12">
+                  <div class="card small">
+                      <div class="card-image">
+                          <img src="images/sample-1.jpg">
+                          <span class="card-title">Card Title</span>
+                      </div>
+                      <div class="card-content">
+                          <p>I am a very simple card. I am good at containing small bits of information.
+                              I am convenient because I require little markup to use effectively.</p>
+                      </div>
+                      <div class="card-action">
+                          <a href="#">This is a link</a>
+                          <a href='#'>This is a link</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
       <div id="test2" class="col s12">
           <ul class="collapsible">
               <li>
@@ -51,7 +68,30 @@
               </li>
           </ul>
       </div>
-    <div id="test3" class="col s12"></div>
+    <div id="test3" class="col s12">
+        <ul class="collapsible">
+              <li>
+                  <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Top-Up Account</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+              <li>
+                  <div class="collapsible-header"><i class="mdi-maps-place"></i>Add New Pricing Plans</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  </li>
+              <li>
+                  <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Add Discounts</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+            <li>
+                  <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Refunds</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+            <li>
+                  <div class="collapsible-header"><i class="mdi-social-whatshot"></i>See Total Earnings</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+            </li>
+          </ul>
+                </div>
     <div id="test4" class="col s12"></div>
   </div>
         </div> 

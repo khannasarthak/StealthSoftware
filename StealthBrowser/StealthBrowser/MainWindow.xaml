@@ -1,22 +1,25 @@
 ﻿<Window 
-    x:Name="webWindow"
-    x:Class="StarterSample.MainWindow" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:awe="http://schemas.awesomium.com/winfx"
     xmlns:data="http://schemas.awesomium.com/winfx/data"
     xmlns:core="clr-namespace:Awesomium.Core;assembly=Awesomium.Core"
+    xmlns:StealthBrowser="clr-namespace:StealthBrowser" 
+    x:Name="webWindow"
+    x:Class="StarterSample.MainWindow"
     WindowStartupLocation="CenterScreen"
     Title="{Binding Title, ElementName=webControl}"
     Height="700" 
     Width="1200"
-    WindowStyle="None"
+    WindowStyle="None" ResizeMode="NoResize"
+    WindowState="Maximized"
+ 
     >
     <Window.Resources>
         <awe:WebSessionProvider x:Key="webSession" DataPath=".\Cache">
             <core:WebPreferences 
-                ShrinkStandaloneImagesToFit="False"
-                SmoothScrolling="True" />
+        		ShrinkStandaloneImagesToFit="False"
+        		SmoothScrolling="True" />
         </awe:WebSessionProvider>
 
         <awe:UrlConverter x:Key="UrlConverter" />
@@ -34,78 +37,19 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <DockPanel 
-                LastChildFill="True" 
-                Height="30"
-                Visibility="{Binding IsRegularWindow, 
-                    ElementName=webWindow, 
-                    Converter={StaticResource booleanToVisibilityConverter}}" Grid.ColumnSpan="2">
-               
-                <TextBox 
-                    FontSize="16"
-                    Padding="3,0"
-                    VerticalContentAlignment="Center"
-                    TextWrapping="NoWrap"
-                    Text="{data:SourceBinding webControl}" />
-            </DockPanel>
-            <awe:WebControl 
-                Grid.Row="1"
-                x:Name="webControl"
-                NativeView="{Binding NativeView, ElementName=webWindow}"
-                WebSession="{Binding Source={StaticResource webSession}}"
-                Source="{Binding Source, ElementName=webWindow}" Grid.ColumnSpan="2"/>
-            <StatusBar
-                Grid.Row="2" 
-                Height="25" 
-                BorderBrush="{DynamicResource 
-                    {x:Static SystemColors.ActiveBorderBrushKey}}" 
-                BorderThickness="0,1,0,0"
-                Visibility="{Binding IsRegularWindow, 
-                    ElementName=webWindow, 
-                    Converter={StaticResource booleanToVisibilityConverter}}" Grid.ColumnSpan="2">
-                <StatusBarItem>
-                    <TextBlock 
-                        VerticalAlignment="Center" 
-                        Padding="3" 
-                        TextWrapping="NoWrap" 
-                        TextTrimming="CharacterEllipsis" 
-                        Text="{Binding TargetURL, ElementName=webControl, 
-                            Converter={StaticResource UrlConverter}}"/>
-                </StatusBarItem>
-                <StatusBarItem HorizontalAlignment="Right">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock 
-                            VerticalAlignment="Center"
-                            Margin="7,0" 
-                            Text="Zoom:"/>
-                        <Slider 
-                            DataContext="{Binding ElementName=webControl}" 
-                            Margin="3,0" 
-                            Minimum="10" 
-                            Maximum="400" 
-                            Width="120"
-                            VerticalAlignment="Center" 
-                            Value="{Binding Zoom}" 
-                            AutoToolTipPlacement="TopLeft" 
-                            IsSnapToTickEnabled="True" 
-                            IsMoveToPointEnabled="True" 
-                            SmallChange="1" 
-                            LargeChange="10" 
-                            TickFrequency="10" 
-                            Focusable="False" 
-                            ToolTip="{Binding Zoom}">
-                            <Slider.ContextMenu>
-                                <ContextMenu 
-                                 DataContext="{Binding PlacementTarget.DataContext,
-                                 RelativeSource={RelativeSource Self}}">
-                                    <MenuItem 
-                                  Command="{x:Static awe:WebControlCommands.ResetZoom}"
-                                  CommandTarget="{Binding}" />
-                                </ContextMenu>
-                            </Slider.ContextMenu>
-                        </Slider>
-                    </StackPanel>
-                </StatusBarItem>
-            </StatusBar>
+				LastChildFill="True" 
+				Height="30"
+				Visibility="{Binding IsRegularWindow, Converter={StaticResource booleanToVisibilityConverter}, ElementName=webWindow}" Grid.ColumnSpan="2"/>
+            <awe:WebControl
+				x:Name="webControl"
+				NativeView="{Binding NativeView, ElementName=webWindow}"
+				WebSession="{Binding Source={StaticResource webSession}}"
+				Source="http://www.google.com" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <awe:WebControl.DataContext>
+                    <StealthBrowser:MainWindow/>
+                </awe:WebControl.DataContext>
+            </awe:WebControl>
+
         </Grid>
     </awe:WebDialogsLayer>
 </Window>

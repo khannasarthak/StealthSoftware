@@ -1,34 +1,34 @@
 ﻿
+
+Imports Awesomium.Core
+Imports Awesomium.Windows.Controls
 Class Application
     ' Application-level events, such as Startup, Exit, and DispatcherUnhandledException
     ' can be handled in this file.
-    private WebView webView;
+    Protected Overrides Sub OnStartup(e As StartupEventArgs)
+        ' Initialization must be performed here,
+        ' before creating a WebControl.
+        If Not WebCore.IsInitialized Then
+            WebCore.Initialize(New WebConfig() With
+            {
+                .HomeURL = "http://www.awesomium.com".ToUri(),
+                .LogPath = ".\starter.log",
+                .LogLevel = LogLevel.Verbose
+            })
+        End If
 
-    Public WebForm()
-{
+        MyBase.OnStartup(e)
+    End Sub
 
-    InitializeComponent();
+    Protected Overrides Sub OnExit(e As ExitEventArgs)
+        ' Make sure we shutdown the core last.
+        If WebCore.IsInitialized Then
+            WebCore.Shutdown()
+        End If
 
-    // Create a windowed WebView instance matching
-    // the size of the container.
-    webView = WebCore.CreateWebView( 
-        this.ClientSize.Width, 
-        this.ClientSize.Height, 
-        ViewType.Window );
-}
+        MyBase.OnExit(e)
+    End Sub
 
-protected override void OnHandleCreated(EventArgs e)
-{
-	base.OnHandleCreated(e);
-
-	if (webView == null)
-	    return;
-
-	// Before using a windowed WebView, we need
-	// to assign a parent window.    
-	webView.ParentWindow = this.Handle;
-}
-    webView.Source = new Uri( "http://www.google.com" );
 End Class
 
 

@@ -16,3 +16,15 @@ C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\bin\Deb
 C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.exe
 C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.xml
 C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.pdb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\MainWindow.baml
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\MainWindow.g.vb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\Application.g.vb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser_MarkupCompile.cache
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.g.resources
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.Resources.resources
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser.vbproj.GenerateResource.Cache
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\bin\Debug\StealthBrowser.exe
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\bin\Debug\StealthBrowser.pdb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\bin\Debug\StealthBrowser.xml
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\GeneratedInternalTypeHelper.g.vb
+C:\Users\Prateek\Documents\StealthSoftware\StealthBrowser\StealthBrowser\obj\Debug\StealthBrowser_MarkupCompile.lref

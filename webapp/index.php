@@ -45,7 +45,7 @@ else
 {
 //Shake animation effect.
 $('#loginCard').shake();
-$("#error").html("<span style='color:#cc0000'>Error:</span> Invalid username and password. ");
+$("#error").html("<span style='color:#cc0000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error:</span> Invalid username or password. ");
 }
 }
 });

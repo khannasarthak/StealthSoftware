@@ -8,8 +8,11 @@ html {
     margin-top: 15%;
 }
 #logintitle {
+    padding-left: 5%;
     color: #000000;
 }
+
+
 #login {
     position: relative;
     left: 23%;

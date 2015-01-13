@@ -4,4 +4,8 @@ $(document).ready(function(){
 $(document).ready(function(){
         $('.collapsible').collapsible();
       });
-        
+
+$(".dropdown-button").dropdown();
+$(document).ready(function(){
+    $('.tooltipped').tooltip({"delay": 50});
+  });

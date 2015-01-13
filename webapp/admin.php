@@ -2,9 +2,8 @@
 <html>
 <head>
 <link type="text/css" rel=stylesheet href="css/materialize.css" media="screen,projection">
-
-    <link type="text/css" rel="stylesheet" href="css/animate.css">
-    <link type="text/css" rel="stylesheet" href="css/styleadmin.css">
+<link type="text/css" rel="stylesheet" href="css/animate.css">
+<link type="text/css" rel="stylesheet" href="css/styleadmin.css">
 	
         <!--<script type="text/javascript" src="js/init.js"></script>-->
         <script src="js/jquery.min.js"></script>
@@ -16,12 +15,17 @@
 </head>
     <body class="blue">  
         <div class="container">
-           <div class="row">
-                <div class="col s3"  class="z-depth-1" id="topbarleft">1</div>
-                <div class="col s6"  class="z-depth-3" id="topbarmid">2</div>
-                <div class="col s3"  class="z-depth-5" id="topbarright">3</div>
-                   
-            </div>
+            <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo left">Logo</a>
+            <ul id="nav-mobile" class="right side-nav">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+            </ul>
+                </div>
+            </nav>
+            
             <div class="row">
       <div class="col s12">
         <ul class="tabs">
@@ -92,8 +96,11 @@
             </li>
           </ul>
                 </div>
-    <div id="test4" class="col s12"></div>
-  </div>
+                <div id="test4" class="col s12">
+                    <i class="large mdi-action-account-balance"></i>
+                    
+                </div>
+            </div>
         </div> 
         
 

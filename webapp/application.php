@@ -144,10 +144,10 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Add New User</div>
                         <div class="collapsible-body">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Click To Perform Above Specified Action</a>
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal_newUser">Click To Perform Above Specified Action</a>
 
                             <!-- Modal Structure -->
-                            <div id="modal1" class="modal">
+                            <div id="modal_newUser" class="modal">
                                 <div class="row">
                                     <form class="col s12">
                                         <div class="row">
@@ -285,6 +285,89 @@
 
                 </ul>
 
+            </div>
+        </div>
+        <div class="col s12 offset-s3">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal_messageOne">Send Message to Unique User<i class="mdi-communication-message right"></i></a>
+            <!-- Modal Structure -->
+            <div id="modal_messageOne" class="modal">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
+                <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+            </div>
+
+
+
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal_messageAll">Send Message to All Users<i class="mdi-communication-message right"></i></a>
+            <!-- Modal Structure -->
+            <div id="modal_messageAll" class="modal">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
+                <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
             </div>
         </div>
     </div>

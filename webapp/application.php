@@ -53,10 +53,7 @@
                                 <span class="card-title">7</span>
 
                             </div>
-                            <div class="card-action">
-                                <a href="#">Click here to get user details.</a>
-
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -71,10 +68,7 @@
                                 <span class="card-title">1823.02</span>
 
                             </div>
-                            <div class="card-action">
-                                <a href="#">Click here to go to analytics.</a>
-
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -90,10 +84,7 @@
                                 <span class="card-title">7</span>
 
                             </div>
-                            <div class="card-action">
-                                <a href="#">Click here to go to analytics.</a>
-
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -109,10 +100,7 @@
                                 <span class="card-title">7</span>
 
                             </div>
-                            <div class="card-action">
-                                <a href="#">Click here to go to analytics.</a>
-
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -127,7 +115,7 @@
                 <ul class="tabs">
                     <li class="tab col s3"><a href="#test1">Accounts</a>
                     </li>
-                    <li class="tab col s3"><a href="#test2">Add/Change Pricing</a>
+                    <li class="tab col s3"><a href="#test2">Pricing</a>
                     </li>
                     <li class="tab col s3"><a href="#test3">Billing</a>
                     </li>
@@ -142,9 +130,9 @@
             <div id="test1" class="col s12 fadeInUp">
                 <ul class="collapsible">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Add New User</div>
-                        <div class="collapsible-body">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal_newUser">Click To Perform Above Specified Action</a>
+                        <div class="collapsible-header"><i class="mdi-social-person-add"></i>New User</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal_newUser">CLICK</a>
 
                             <!-- Modal Structure -->
                             <div id="modal_newUser" class="modal">
@@ -189,20 +177,8 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Existing User Details</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Remove Existing User</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Change Your Account Password</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-social-person"></i>Existing User</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
@@ -211,28 +187,15 @@
             </div>
             <div id="test2" class="col s12 fadeInUp">
                 <ul class="collapsible">
-
                     <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Existing Prices</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Add New Prices</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Make New Discount Coupon</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Existing Coupon Details</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-action-redeem"></i>Discount Coupons</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
@@ -241,20 +204,20 @@
             <div id="test3" class="col s12 fadeInUp">
                 <ul class="collapsible">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Top-Up Account</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-action-payment"></i>Top-Up Account</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Refund</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Paid Bills</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
@@ -265,20 +228,20 @@
 
                 <ul class="collapsible">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>See Earnings</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>See Individual PC Earnings</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-header"><i class="mdi-device-devices"></i>See Individual PC Earnings</div>
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-body grey lighten-3">
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>

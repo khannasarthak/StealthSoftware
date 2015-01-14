@@ -30,3 +30,7 @@ html {
 #navBar{
 margin-top: 1%;
 }
+#displaycards{
+    position: relative;
+    margin-top: 3%;
+}

@@ -53,7 +53,7 @@
                                 <span class="card-title">64</span>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                                 <span class="card-title">6:03</span>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                                 <span class="card-title">176:06</span>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                 <span class="card-title">7</span>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -113,13 +113,16 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="#test1"><i class="small mdi-action-account-circle"></i>Accounts</a>
+                    <li class="tab col s3"><a href="#test1">Accounts</a>
                     </li>
-                    <li class="tab col s3"><a href="#test2"><i class="small mdi-editor-attach-money"></i>Add/Change Pricing</a>
+                    <li class="tab col s3">
+                        <a href="#test2">
+                            </i>User Log</a>
+
                     </li>
-                    <li class="tab col s3"><a href="#test3"><i class="small mdi-action-shopping-cart"></i>Billing</a>
+                    <li class="tab col s3"><a href="#test3">Billing</a>
                     </li>
-                    <li class="tab col s3"><a href="#test4"><i class="small mdi-action-assessment"></i>Analytics</a>
+                    <li class="tab col s3"><a href="#test4">Analytics</a>
                     </li>
 
 
@@ -132,56 +135,35 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-image-filter-1"></i>Change Password</div>
                         <div class="collapsible-body">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal_newUser">Click To Perform Above Specified Action</a>
+                            <div class="row">
+                                <form class="col s12">
 
-                            <!-- Modal Structure -->
-                            <div id="modal_newUser" class="modal">
-                                <div class="row">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input id="first_name" type="text" class="validate">
-                                                <label for="first_name">First Name</label>
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <input id="last_name" type="text" class="validate">
-                                                <label for="last_name">Last Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="username" type="text" class="validate">
-                                                <label for="username">Username</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="password" type="password" class="validate">
-                                                <label for="password">Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input id="email" type="email" class="validate">
-                                                <label for="email">Email</label>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
 
-                                <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                                <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
-                                <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">Old Password</label>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">New Password</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">Confirm New Password</label>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action" onclick="toast('Password Changed Succesfully', 3000)">Change Password
+                                <i class="mdi-content-send right"></i>
+                            </button>
+
 
                         </div>
                     </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-2"></i>Change Existing Details</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
+
 
 
                 </ul>
@@ -191,29 +173,43 @@
                 <ul class="collapsible">
 
                     <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Existing Prices</div>
+                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Your Previous Sessions</div>
                         <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <table class="bordered">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">Date</th>
+                                        <th data-field="name">Session Start</th>
+                                        <th data-field="price">Session End</th>
+                                        <th data-field="currentBal">Balance at Session End</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Alvin</td>
+                                        <td>Eclair</td>
+                                        <td>$0.87</td>
+                                        <td>$0.87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Jellybean</td>
+                                        <td>$3.76</td>
+                                        <td>$0.87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                        <td>$0.87</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Add New Prices</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Make New Discount Coupon</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Existing Coupon Details</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
             <div id="test3" class="col s12 fadeInUp">
@@ -221,7 +217,33 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-image-filter-1"></i>See Previous Top Ups</div>
                         <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <table class="bordered">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">Time</th>
+                                        <th data-field="name">Plan Name</th>
+                                        <th data-field="price">Amount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Alvin</td>
+                                        <td>Eclair</td>
+                                        <td>$0.87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Jellybean</td>
+                                        <td>$3.76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </li>
                     <li>
@@ -260,17 +282,17 @@
 
             </div>
         </div>
-   
-
-
-         
 
 
 
 
 
-    <!-- <script type="text/javascript" src="js/prism.js"></script>-->
-    <script type="text/javascript" src="js/materialize.js"></script>
+
+
+
+
+        <!-- <script type="text/javascript" src="js/prism.js"></script>-->
+        <script type="text/javascript" src="js/materialize.js"></script>
 </body>
 
 

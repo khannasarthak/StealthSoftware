@@ -1,7 +1,7 @@
 <?php session_start(); if(empty($_SESSION[ 'user_name'])) {echo "inside if"; echo $_SESSION[ 'user_name']; header( 'Location: index.php'); } ?>
 
 <!DOCTYPE html>
-<html>
+<html ng-app="stealth">
 
 <head>
     <link type="text/css" rel=stylesheet href="css/materialize.css" media="screen,projection">
@@ -10,15 +10,13 @@
 
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
     <script>
         $(document).ready(function () {
             $('.collapsible').collapsible();
             $('ul.tabs').tabs();
-        });
-        $(document).ready(function () {
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
-
         });
     </script>
 
@@ -28,7 +26,7 @@
 
 <body class="blue">
     <div class="container">
-        <div class="row fadeInDown" id="navBar">
+        <div class="row animated fadeInDown" id="navBar">
             <nav class="white">
                 <div class="nav-wrapper">
                     <a class="brand-logo left grey-text">&nbsp;&nbsp;Stealth</a>
@@ -42,11 +40,11 @@
                 </div>
             </nav>
         </div>
-        <div class="row" id="displaycards">
+        <div class="row animated flipInX" id="displaycards">
 
             <div class="col s3"><span class="flow-text"></span>
                 <div class="row">
-                    <div class="col s3 m12">
+                    <div class="col s3 m12" ng-controller="usersOnline">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Users Online</p>
@@ -61,7 +59,7 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s3 m12">
+                    <div class="col s3 m12" ng-controller="totalIncome">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Todays Total Income</p>
@@ -77,11 +75,11 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s3 m12">
+                    <div class="col s3 m12" ng-controller="uniqueUsers">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Users Online</p>
-                                <span class="card-title">7</span>
+                                <p>Unique Users</p>
+                                <span class="card-title">23</span>
 
                             </div>
                            
@@ -93,11 +91,11 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s6 m12">
+                    <div class="col s6 m12" ng-controller="something">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Users Online</p>
-                                <span class="card-title">7</span>
+                                <span class="card-title"></span>
 
                             </div>
                           
@@ -110,7 +108,7 @@
 
 
         </div>
-        <div class="row">
+        <div class="row animated fadeIn">
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3"><a href="#test1">Accounts</a>
@@ -127,7 +125,7 @@
             </div>
         </div>
         <div class="row">
-            <div id="test1" class="col s12 fadeInUp">
+            <div id="test1" class="col s12 animated fadeInUp">
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-person-add"></i>New User</div>
@@ -185,7 +183,7 @@
                 </ul>
 
             </div>
-            <div id="test2" class="col s12 fadeInUp">
+            <div id="test2" class="col s12 animated fadeInUp">
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
@@ -201,7 +199,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="test3" class="col s12 fadeInUp">
+            <div id="test3" class="col s12 animated fadeInUp">
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-payment"></i>Top-Up Account</div>
@@ -224,7 +222,7 @@
 
                 </ul>
             </div>
-            <div id="test4" class="col s12 fadeInUp">
+            <div id="test4" class="col s12 animated fadeInUp">
 
                 <ul class="collapsible">
                     <li>
@@ -251,12 +249,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <!-- <script type="text/javascript" src="js/prism.js"></script>-->
     <script type="text/javascript" src="js/materialize.js"></script>
 </body>
 

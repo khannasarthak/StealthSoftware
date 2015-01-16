@@ -48,7 +48,7 @@
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Users Online</p>
-                                <span class="card-title">7</span>
+                                <span class="card-title">{{users.online}}</span>
 
                             </div>
                             

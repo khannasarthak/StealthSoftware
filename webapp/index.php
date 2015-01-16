@@ -33,7 +33,7 @@ var password=$.md5($("#password").val());
 $.ajax({
 type: "POST",
 url: "login.php",
-data: "name="+username+"&pwd="+password,
+data: "number="+username+"&pwd="+password,
 
 success: function(html){
 if(html==1)
@@ -71,7 +71,7 @@ return false;
           <div class="row">
         <div class="input-field col s12">
           <input id="user_name" type="text" name="user_name" required>
-          <label for="username">Username</label>
+          <label for="username">Contact Number</label>
         </div>
       </div>
       <div class="row">

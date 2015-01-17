@@ -34,3 +34,18 @@ margin-top: 1%;
     position: relative;
     margin-top: 3%;
 }
+
+#newUserForm{
+    margin-top: 2%;
+}
+#topUpForm{
+    margin-top: 2%;
+}
+
+#refundForm{
+    margin-top: 2%;
+}
+
+#existingUserForm{
+    margin-top: 2%;
+}

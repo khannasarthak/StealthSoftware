@@ -1,21 +1,19 @@
-var stealthApp=angular.module('stealth',[]);
+var stealthApp = angular.module('stealth', []);
 
-stealthApp.controller('usersOnline',
-                     function($scope,$http,$interval){
-var users={};
+stealthApp.controller('status',
+                     function ($scope, $http, $interval){
+var obj = {};
     
 function xhr(){
-$http.get('loggedon.php').
+$http.get('statusCards.php').
   success(function(data, status, headers, config) {
-    users.online=data;
+    obj.online=data;
   }).
   error(function(data, status, headers, config) {
-    users.online='ERROR';
+    obj.online='ERROR';
   });
 }
     
     $interval(xhr, 1000);
-    
-    users.online='25';
-    $scope.users=users;
+    $scope.obj=obj;
 });

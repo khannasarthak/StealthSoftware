@@ -10,7 +10,7 @@
 
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/controllers.js"></script>
     <script>
         $(document).ready(function () {
@@ -43,12 +43,12 @@
         <div class="row animated flipInX" id="displaycards">
 
             <div class="col s3"><span class="flow-text"></span>
-                <div class="row">
-                    <div class="col s3 m12" ng-controller="usersOnline">
+                <div class="row"  ng-controller="status">
+                    <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Users Online</p>
-                                <span class="card-title">{{users.online}}</span>
+                                <span class="card-title">{{obj.online}}</span>
 
                             </div>
                             
@@ -59,11 +59,11 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s3 m12" ng-controller="totalIncome">
+                    <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Todays Total Income</p>
-                                <span class="card-title">1823.02</span>
+                                <span class="card-title">&#8377;{{obj.income}}</span>
 
                             </div>
                            
@@ -75,7 +75,7 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s3 m12" ng-controller="uniqueUsers">
+                    <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Unique Users</p>
@@ -91,7 +91,7 @@
             <div class="col s3"><span class="flow-text"></span>
 
                 <div class="row">
-                    <div class="col s6 m12" ng-controller="something">
+                    <div class="col s6 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Users Online</p>

@@ -13,4 +13,98 @@ $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
 VALUES (now(), '$contact', 'LoggedOut', '$system');";
 header('Location: index.php');
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$query="SELECT `time` FROM `log` WHERE `user` = '$contact' AND `action` = 'LoggedOut' ORDER BY `sno` DESC LIMIT 1";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$num_row = mysqli_num_rows($result);
+
+		$row=mysqli_fetch_array($result);
+		if( $num_row >=1 ) {
+			$logoutTime=strtotime($row['time']);
+		}
+
+$query="SELECT `time` FROM `log` WHERE `user` = '$contact' AND `action` = 'LoggedIn' ORDER BY `sno` DESC LIMIT 1";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$num_row = mysqli_num_rows($result);
+
+		$row=mysqli_fetch_array($result);
+		if( $num_row >=1 ) {
+			$loginTime=strtotime($row['time']);
+		}
+
+
+$timeDiff=$logoutTime-$loginTime;
+
+
+
+$query="SELECT `amount`, `cycle`, `timevalue` FROM `pricingmodels` WHERE `code` = (SELECT `plan` FROM `pricingplan` WHERE `user` = '$contact' LIMIT 1) LIMIT 1;";
+
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+$num_row = mysqli_num_rows($result);
+
+		$row=mysqli_fetch_array($result);
+		if( $num_row >=1 ) {
+			$amt=$row['amount'];
+            $cycle=$row['cycle'];
+            $period=$row['timevalue'];
+		}
+
+
+
+switch($cycle){
+case "month":
+    $timeDiff=$timeDiff/2592000;
+    break;
+    
+case "hour":
+    $timeDiff=$timeDiff/3600;
+    break;
+    
+case "day":
+    $timeDiff=$timeDiff/86400;
+    break;
+    
+case "week":
+    $timeDiff=$timeDiff/604800;
+    break;
+    
+case "year":
+    $timeDiff=$timeDiff/31556926;
+    break;
+    
+default: echo "Wrong Cycle Type";
+}
+
+
+
+$units=$timeDiff/$period;
+
+
+
+$amount=$units*$amt;
+
+
+
+$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`) VALUES (now(), '$contact', ' $amount', '$units');";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$query="SELECT `amount` FROM `account` WHERE `user`='$contact';";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$num_row = mysqli_num_rows($result);
+
+		$row=mysqli_fetch_array($result);
+		$acc=$row['amount'];
+
+$balance=$acc-$amount;
+
+$query = "UPDATE `account` SET `amount` = '$balance' WHERE `user` = '$contact' LIMIT 1;";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
+$query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
+VALUES (now(), '$contact', 'billed $amount', '$system');";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
 ?>

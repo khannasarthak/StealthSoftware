@@ -17,8 +17,9 @@
             $('.collapsible').collapsible();
             $('ul.tabs').tabs();
             $('.modal-trigger').leanModal();
+           
         });
-        $('select').material_select();
+        
     </script>
 
 
@@ -140,42 +141,33 @@
                                         <div class="row">
                                             <div class="input-field col s6">
                                                 <input id="first_name" type="text" class="validate">
-                                                <label for="first_name">First Name</label>
+                                                <label for="first_name">Name</label>
                                             </div>
-                                            <div class="input-field col s6">
-                                                <input id="last_name" type="text" class="validate">
-                                                <label for="last_name">Last Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="input-field col s4">
                                                 <input id="username" type="text" class="validate">
-                                                <label for="username">Username ( Phone Number )</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s4">
-                                                <input id="password" type="password" class="validate">
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="input-field col s4">
-                                                <input id="password" type="password" class="validate">
-                                                <label for="password">Password</label>
+                                                <label for="username">Contact ( Phone Number )</label>
                                             </div>
 
                                         </div>
+
                                         <div class="row">
-                                            <div class="input-field col s8">
-                                                <input id="email" type="email" class="validate">
-                                                <label for="email">Email</label>
+                                            <div class="input-field col s4">
+                                                <input id="password" type="password" class="validate">
+                                                <label for="password">Password</label>
                                             </div>
+                                            <div class="input-field col s4">
+                                                <input id="password" type="password" class="validate">
+                                                <label for="password">Confirm Password</label>
+                                            </div>
+
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
-                            <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
 
 
                         </div>
@@ -189,7 +181,7 @@
                                         <div class="row">
                                             <div class="input-field col s4">
                                                 <input id="username" type="text" class="validate">
-                                                <label for="username">Username ( Phone Number )</label>
+                                                <label for="username">Contact ( Phone Number )</label>
                                             </div>
                                         </div>
 
@@ -197,9 +189,9 @@
                                 </div>
                                 </form>
                             </div>
-                            <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                            <a href="#" class="waves-effect btn-flat  blue modal-close">Clear All</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
                         </div>
 
             </div>
@@ -264,9 +256,11 @@
                                 </form>
 
                             </div>
-                            <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
+
+
 
                         </div>
                     </div>
@@ -303,11 +297,14 @@
 
                                 </form>
                             </div>
-                            <a href="#" class="waves-effect btn-flat modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat modal-close">Cancel</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
+                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
+
 
                         </div>
+
+
                     </div>
                 </li>
                 <li>
@@ -360,6 +357,7 @@
         </div>
     </div>
     </div>
+
     <script type="text/javascript" src="js/materialize.js"></script>
 </body>
 

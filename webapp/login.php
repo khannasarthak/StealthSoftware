@@ -3,6 +3,7 @@ session_start();
 $username = $_POST['number'];
 $password = $_POST['pwd'];
 $system=$_POST['system'];
+
 $mysqli=mysqli_connect('localhost','root','','stealth');
 
 $query="SELECT `number` FROM `systems` WHERE `group` = '$system' AND `loggedIn` = '0' ORDER BY `number` LIMIT 1";
@@ -13,6 +14,7 @@ $num_row = mysqli_num_rows($result);
 		$row=mysqli_fetch_array($result);
 		if( $num_row >=1 ) {
 			$system=$row['number'];
+            $_SESSION['system']=$system;
 		}
 		else{
 			echo 'false';
@@ -35,4 +37,7 @@ $num_row = mysqli_num_rows($result);
 		else{
 			echo 'false';
 		}
+$query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
+VALUES (now(), '$username', 'LoggedIn', '$system');";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 ?>

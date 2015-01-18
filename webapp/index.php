@@ -33,7 +33,7 @@ var password=$.md5($("#password").val());
 $.ajax({
 type: "POST",
 url: "login.php",
-data: "number="+username+"&pwd="+password,
+data: "number="+username+"&pwd="+password+"&system=PC",
 
 success: function(html){
 if(html==1)

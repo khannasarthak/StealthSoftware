@@ -87,7 +87,7 @@ $amount=$units*$amt;
 
 
 
-$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`) VALUES (now(), '$contact', ' $amount', '$units');";
+$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`) VALUES (curdate(), '$contact', ' $amount', '$units');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="SELECT `amount` FROM `account` WHERE `user`='$contact';";
@@ -104,7 +104,7 @@ $query = "UPDATE `account` SET `amount` = '$balance' WHERE `user` = '$contact' L
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
-VALUES (now(), '$contact', 'billed $amount', '$system');";
+VALUES (date(now()), '$contact', 'billed $amount', '$system');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 ?>

@@ -19,6 +19,7 @@
             $('ul.tabs').tabs();
             $('.modal-trigger').leanModal();
              $('select').material_select();});
+        
     </script>
 
 
@@ -41,10 +42,10 @@
                 </div>
             </nav>
         </div>
-        <div class="row animated flipInX" id="displaycards">
+        <div class="row animated flipInX" id="displaycards"  ng-controller="status">
 
             <div class="col s3"><span class="flow-text"></span>
-                <div class="row" ng-controller="status">
+                <div class="row">
                     <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
@@ -80,7 +81,7 @@
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
                                 <p>Unique Users</p>
-                                <span class="card-title">23</span>
+                                <span class="card-title">{{obj.unique}}</span>
 
                             </div>
 

@@ -4,7 +4,7 @@
 <html ng-app="stealth">
 
 <head>
-    <script src="js/angular.min.js"></script>
+     
     <link type="text/css" rel=stylesheet href="css/materialize.css" media="screen,projection">
     <link type="text/css" rel="stylesheet" href="css/animate.css">
     <link type="text/css" rel="stylesheet" href="css/styleadmin.css">
@@ -12,15 +12,11 @@
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
     
+   
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
     <script src="js/controllers.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-            $('ul.tabs').tabs();
-            $('.modal-trigger').leanModal();
-             $('select').material_select();});
-        
-    </script>
+    
 
 
     <title>Stealth Gaming Lounge : Admin</title>
@@ -358,7 +354,16 @@
     </div>
     </div>
 
+<script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $('ul.tabs').tabs();
+            $('.modal-trigger').leanModal();
+            $('select').material_select();});
+        
+    </script>
     <script type="text/javascript" src="js/materialize.js"></script>
+
 </body>
 
 

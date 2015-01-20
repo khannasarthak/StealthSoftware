@@ -14,7 +14,7 @@
     
    
     
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/controllers.js"></script>
     
 
@@ -133,15 +133,15 @@
 
                             <div id="newUserForm">
                                 <div class="row">
-                                    <form class="col s10 offset-s1">
+                                    <form class="col s12"><div>
                                         <div class="row">
                                             <div class="input-field col s6">
                                                 <input id="first_name" type="text" class="validate">
                                                 <label for="first_name">Name</label>
                                             </div>
-                                            <div class="input-field col s4">
+                                            <div class="input-field col s6">
                                                 <input id="username" type="text" class="validate">
-                                                <label for="username">Contact ( Phone Number )</label>
+                                                <label for="username">Contact</label>
                                             </div>
 
                                         </div>
@@ -158,7 +158,7 @@
 
                                         </div>
 
-                                    </form>
+                                            </form></div>
                                 </div>
                             </div>
                             <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>

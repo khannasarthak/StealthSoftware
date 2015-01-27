@@ -3,6 +3,9 @@ var stealthApp = angular.module('stealth', []);
 stealthApp.controller('status',
                      function ($scope, $http, $interval){
 var obj = {};
+    obj.income=0;
+    obj.online=0;
+    obj.unique=0;
     
 function xhr(){
 $http.get('peopleOnline.php').

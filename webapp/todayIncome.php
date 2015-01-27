@@ -7,6 +7,9 @@ $num_row = mysqli_num_rows($result);
 
 $row=mysqli_fetch_array($result);
 		if( $num_row >=1 ) {
+            if($row['sum']==NULL)
+            echo 0.0;
+            else
 			 echo $row['sum']; 
 		}
 		else{

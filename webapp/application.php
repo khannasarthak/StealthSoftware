@@ -4,19 +4,19 @@
 <html ng-app="stealth">
 
 <head>
-     
+
     <link type="text/css" rel=stylesheet href="css/materialize.css" media="screen,projection">
     <link type="text/css" rel="stylesheet" href="css/animate.css">
     <link type="text/css" rel="stylesheet" href="css/styleadmin.css">
 
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
-    
-   
-    
+
+
+
     <script src="js/angular.min.js"></script>
     <script src="js/controllers.js"></script>
-    
+
 
 
     <title>Stealth Gaming Lounge : Admin</title>
@@ -38,7 +38,7 @@
                 </div>
             </nav>
         </div>
-        <div class="row animated flipInX" id="displaycards"  ng-controller="status">
+        <div class="row animated flipInX" id="displaycards" ng-controller="status">
 
             <div class="col s3"><span class="flow-text"></span>
                 <div class="row">
@@ -131,39 +131,57 @@
 
 
 
-                            <div id="newUserForm">
-                                <div class="row">
-                                    <form class="col s12"><div>
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <input id="first_name" type="text" class="validate">
-                                                <label for="first_name">Name</label>
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <input id="username" type="text" class="validate">
-                                                <label for="username">Contact</label>
-                                            </div>
+                            
+                                <div class="row" ng-controller="newUser">
+                                    <div class="container">
+                                    <form novalidate class="col s12">
+                                        
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <i class="mdi-action-account-circle prefix"></i>
+                                                    <input id="name" type="text" ng-model="userName">
+                                                    <label for="name">Name</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <i class="mdi-communication-phone prefix"></i>
+                                                    <input id="contact" type="text" ng-model="userContact">
+                                                    <label for="contact">Contact</label>
+                                                </div>
 
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s4">
-                                                <input id="password" type="password" class="validate">
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="input-field col s4">
-                                                <input id="password" type="password" class="validate">
-                                                <label for="password">Confirm Password</label>
                                             </div>
 
-                                        </div>
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <i class="mdi-action-lock prefix"></i>
+                                                    <input id="password" type="password" ng-model="userPwd">
+                                                    <label for="password">Password</label>
+                                                </div>
+                                                <div class="col s3">
+                                                <p>
+    <input name="userType" type="radio" id="client" ng-model="userType" value="1"/>
+    <label for="client">User</label>
+                                                    </p></div>
+                                                <div class="col s3">
+  <p>
+    <input name="userType" type="radio" id="admin" ng-model="userType" value="2"/>
+    <label for="admin">Admin</label>
+                                                    </p></div></div>
 
-                                            </form></div>
-                                </div>
+                                            
+                                            <div class="row"><button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+    <i class="mdi-content-send right"></i>
+  </button>
+                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
                             </div>
-                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
+
+                                    </form>
+                                        <div class="row">
+                                            {{newUser.error}}
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            
 
 
                         </div>
@@ -176,7 +194,7 @@
                                     <form class="col s10 offset-s1">
                                         <div class="row">
                                             <div class="input-field col s4">
-                                                <input id="username" type="text" class="validate">
+                                                <input id="username" type="text">
                                                 <label for="username">Contact ( Phone Number )</label>
                                             </div>
                                         </div>
@@ -221,7 +239,7 @@
                                 <form class="col s10 offset-s1">
                                     <div class="row">
                                         <div class="input-field col s4">
-                                            <input id="first_name" type="text" class="validate">
+                                            <input id="first_name" type="text" >
                                             <label for="first_name">Username (Phone Number):</label>
                                         </div>
 
@@ -229,7 +247,7 @@
 
                                     <div class="row">
                                         <div class="input-field col s4">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" type="password" >
                                             <label for="password">Password</label>
                                         </div>
 
@@ -244,7 +262,7 @@
                                             <option value="3">Option 3</option>
                                         </select>
                                         <div class="input-field col s4">
-                                            <input id="first_name" type="text" class="validate">
+                                            <input id="first_name" type="text" >
                                             <label for="first_name">Amount:</label>
                                         </div>
 
@@ -269,11 +287,11 @@
                                 <form class="col s10 offset-s1">
                                     <div class="row">
                                         <div class="input-field col s4">
-                                            <input id="first_name" type="text" class="validate">
+                                            <input id="first_name" type="text" >
                                             <label for="first_name">Username (Phone Number):</label>
                                         </div>
                                         <div class="input-field col s4">
-                                            <input id="first_name" type="text" class="validate">
+                                            <input id="first_name" type="text" >
                                             <label for="first_name">Amount :</label>
                                         </div>
 
@@ -284,7 +302,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s4">
-                                            <input id="password" type="password" class="validate">
+                                            <input id="password" type="password" >
                                             <label for="password">Password</label>
                                         </div>
 
@@ -354,13 +372,13 @@
     </div>
     </div>
 
-<script>
+    <script>
         $(document).ready(function () {
             $('.collapsible').collapsible();
             $('ul.tabs').tabs();
             $('.modal-trigger').leanModal();
-            $('select').material_select();});
-        
+            $('select').material_select();
+        });
     </script>
     <script type="text/javascript" src="js/materialize.js"></script>
 

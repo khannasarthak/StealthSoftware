@@ -32,8 +32,64 @@ $http.get('peopleOnline.php').
     });
     }
     
-    $interval(xhr, 1000);
-    $interval(income, 1000);
-    $interval(unique, 1000);
+    $interval(xhr, 5000);
+    $interval(income, 5001);
+    $interval(unique, 5002);
     $scope.obj=obj;
+});
+
+stealthApp.controller('newUser',
+                     function ($scope, $http){
+    var newUser={};
+    newUser.error="ERROR";
+    var formSubmit=false;
+    
+    $scope.userContact="2";
+    
+    $scope.clear=function(){
+    $scope.userName="";
+    $scope.userContact="";
+    $scope.userPwd="";
+    };
+    
+    $scope.$watch("userContact", function(){
+        if($scope.userContact.length==10){
+        $http.post('checkNumber.php', {"number":$scope.userContact}).
+  success(function(data, status, headers, config) {
+    if(data>0)
+    {formSubmit=false;}
+            else{
+            formSubmit=true;
+            }
+  }).
+  error(function(data, status, headers, config) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+        }
+    });
+
+$scope.newUserSubmit=function(){
+ if(formSubmit==true){
+     $http.post('newUser.php', {"number":$scope.userContact,"name":$scope.userName,"password":$scope.userPwd,"level":$scope.userType}).
+  success(function(data, status, headers, config) {
+    if(data>0)
+    {toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>New user created</span>', 4000);
+    $scope.clear();}
+            else{
+            toast('New user creation failed', 4000);
+                $scope.clear();
+            }
+  }).
+  error(function(data, status, headers, config) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+        }
+    else{
+    obj.error="<div class=\"red-text\"><i class=\"mdi-alert-error\"></i>User with this contact exists</div>";
+    }
+ 
+ 
+};
 });

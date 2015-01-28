@@ -124,64 +124,72 @@
         </div>
         <div class="row">
             <div id="test1" class="col s12 animated fadeInUp">
-                <ul class="collapsible">
+                <ul class="collapsible" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-person-add"></i>New User</div>
                         <div class="collapsible-body grey lighten-3">
 
 
 
-                            
-                                <div class="row" ng-controller="newUser">
-                                    <div class="container">
-                                    <form novalidate class="col s12">
-                                        
-                                            <div class="row">
-                                                <div class="input-field col s6">
-                                                    <i class="mdi-action-account-circle prefix"></i>
-                                                    <input id="name" type="text" ng-model="userName">
-                                                    <label for="name">Name</label>
-                                                </div>
-                                                <div class="input-field col s6">
-                                                    <i class="mdi-communication-phone prefix"></i>
-                                                    <input id="contact" type="text" ng-model="userContact">
-                                                    <label for="contact">Contact</label>
-                                                </div>
 
+                            <div class="row" ng-controller="newUser">
+                                <div class="container">
+                                    <form novalidate class="col s12">
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-action-account-circle prefix"></i>
+                                                <input id="name" type="text" ng-model="userName">
+                                                <label for="name">Name</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <i class="mdi-communication-phone prefix"></i>
+                                                <input id="contact" type="text" ng-model="userContact">
+                                                <label for="contact">Contact</label>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="input-field col s6">
-                                                    <i class="mdi-action-lock prefix"></i>
-                                                    <input id="password" type="password" ng-model="userPwd">
-                                                    <label for="password">Password</label>
-                                                </div>
-                                                <div class="col s3">
-                                                <p>
-    <input name="userType" type="radio" id="client" ng-model="userType" value="1"/>
-    <label for="client">User</label>
-                                                    </p></div>
-                                                <div class="col s3">
-  <p>
-    <input name="userType" type="radio" id="admin" ng-model="userType" value="2"/>
-    <label for="admin">Admin</label>
-                                                    </p></div></div>
+                                        </div>
 
-                                            
-                                            <div class="row"><button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
-    <i class="mdi-content-send right"></i>
-  </button>
-                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
-                            </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-action-lock prefix"></i>
+                                                <input id="password" type="password" ng-model="userPwd">
+                                                <label for="password">Password</label>
+                                            </div>
+                                            <div class="col s3">
+                                                <p>
+                                                    <input name="userType" type="radio" id="client" ng-model="userType" value="1" />
+                                                    <label for="client">User</label>
+                                                </p>
+                                            </div>
+                                            <div class="col s3">
+                                                <p>
+                                                    <input name="userType" type="radio" id="admin" ng-model="userType" value="2" />
+                                                    <label for="admin">Admin</label>
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col s4">
+                                                <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                    <i class="mdi-content-send right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col s4">
+                                                <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                            </div>
+                                        </div>
 
                                     </form>
-                                        <div class="row">
-                                            {{newUser.error}}
-                                        </div>
+                                    <div class="row">
+                                        {{newUser.error}}
                                     </div>
                                 </div>
-                            
-                            
+                            </div>
+
+
 
 
                         </div>
@@ -191,233 +199,248 @@
                         <div class="collapsible-body grey lighten-3">
                             <div class="row">&nbsp;</div>
                             <div class="container">
-                                <div class="row">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <i class="mdi-communication-phone prefix"></i>
-                                                <input id="username" type="text">
-                                                <label for="username">Contact</label>
-                                            </div>
-                                            
+
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s4">
+                                            <i class="mdi-communication-phone prefix"></i>
+                                            <input id="username" type="text">
+                                            <label for="username">Contact</label>
+                                        </div>
+
+                                        <div class="col s4">
                                             <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
-    <i class="mdi-content-send right"></i>
-  </button>
-                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a></div>
-                                       
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col s4">
+                                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </form>
+
+
+                            </div>
+                    </li>
+                </ul>
+
+                </div>
+                <div id="test2" class="col s12 animated fadeInUp">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
+                            <div class="collapsible-body grey lighten-3">
+                                <div class="row">
+                                    <table class="hoverable centered">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno</th>
+                                                <th data-field="id">Price</th>
+                                                <th data-field="name">Cycle</th>
+                                                <th data-field="price">Period</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Alvin</td>
+                                                <td>Eclair</td>
+                                                <td>$0.87</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Alan</td>
+                                                <td>Jellybean</td>
+                                                <td>$3.76</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Jonathan</td>
+                                                <td>Lollipop</td>
+                                                <td>$7.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col offset-s5"><a class="waves-effect waves-light btn-large"><i class="mdi-content-add left"></i>ADD NEW</a>
+                                    </div>
+
+                                </div>
+                        </li>
+                    </ul>
+                    </div>
+                    <div id="test3" class="col s12 animated fadeInUp" ng-controller="billingTab">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-action-payment"></i>Recharge</div>
+                                <div class="collapsible-body grey lighten-3">
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <form class="col s12">
+                                                <div class="row">
+                                                    <div class="input-field col s6">
+                                                        <i class="mdi-communication-phone prefix"></i>
+                                                        <input id="first_name" type="text">
+                                                        <label for="first_name">Contact</label>
+                                                    </div>
+
+                                                    <div class="col s6">
+                                                        <label>Pricing Plan</label>
+                                                        <select>
+                                                            <option value="" disabled selected>Choose your option</option>
+                                                            <option value="1">Option 1</option>
+                                                            <option value="2">Option 2</option>
+                                                            <option value="3">Option 3</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="input-field col s6">
+                                                        <i class="mdi-editor-attach-money prefix"></i>
+                                                        <input id="money" type="text">
+                                                        <label for="money">Amount</label>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                            <i class="mdi-content-send right"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+
+                                                    </div>
+
+                                                </div>
+                                            </form>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
+                                <div class="collapsible-body grey lighten-3">
+                                    <div class="container">
+                                        <div class="row">
+                                            <form class="col s10 offset-s1">
+                                                <div class="row">
+                                                    <div class="input-field col s6">
+                                                        <i class="mdi-communication-phone prefix"></i>
+                                                        <input id="first_name" type="text">
+                                                        <label for="first_name">Contact</label>
+                                                    </div>
+                                                    <div class="input-field col s6">
+                                                        <i class="mdi-editor-attach-money prefix"></i>
+                                                        <input id="first_name" type="text">
+                                                        <label for="first_name">Amount</label>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col s6">
+                                                        <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                            <i class="mdi-content-send right"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col s6">
+                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+
+                                    </div>
 
 
                                 </div>
-                                </form>
-                        </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
+                                <div class="collapsible-body grey lighten-3">
+                                    <div class="container">
 
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s4">
+                                            <i class="mdi-communication-phone prefix"></i>
+                                            <input id="username" type="text">
+                                            <label for="username">Contact</label>
+                                        </div>
+
+                                        <div class="col s4">
+                                            <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                <i class="mdi-content-send right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col s4">
+                                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </form>
+
+
+                            </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="test4" class="col s12 animated fadeInUp">
+
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
+                                <div class="collapsible-body grey lighten-3">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
+                                <div class="collapsible-body grey lighten-3">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
             </div>
-            </li>
-            </ul>
+            <script type="text/javascript" src="js/materialize.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.collapsible').collapsible();
+                    $('ul.tabs').tabs();
+                    $('.modal-trigger').leanModal();
+                    $('select').material_select();
+                });
+            </script>
 
-        </div>
-        <div id="test2" class="col s12 animated fadeInUp">
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <div class="row">
-                        <table class="hoverable centered">
-        <thead>
-          <tr>
-              <th>Sno</th>
-              <th data-field="id">Price</th>
-              <th data-field="name">Cycle</th>
-              <th data-field="price">Period</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>  
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-              <td>2</td>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-              <td>3</td>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
-        </tbody>
-                            </table></div>
-                        <div class="row"><div class="col offset-s5"><a class="waves-effect waves-light btn-large"><i class="mdi-content-add left"></i>ADD NEW</a>
-</div>
-                        
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="mdi-action-redeem"></i>Discount Coupons</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="test3" class="col s12 animated fadeInUp">
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="mdi-action-payment"></i>Top-Up Account</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <div id="topUpForm">
-                            <div class="row">
-                                <form class="col s10 offset-s1">
-                                    <div class="row">
-                                        <div class="input-field col s4">
-                                            <input id="first_name" type="text" >
-                                            <label for="first_name">Username (Phone Number):</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s4">
-                                            <input id="password" type="password" >
-                                            <label for="password">Password</label>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="row">
-                                        <label>Select Pricing Plan</label>
-                                        <select class="col s4">
-                                            <option value="" disabled selected>Choose your option</option>
-                                            <option value="1">Option 1</option>
-                                            <option value="2">Option 2</option>
-                                            <option value="3">Option 3</option>
-                                        </select>
-                                        <div class="input-field col s4">
-                                            <input id="first_name" type="text" >
-                                            <label for="first_name">Amount:</label>
-                                        </div>
-
-                                    </div>
-                                </form>
-
-                            </div>
-                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
-
-
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <div id="refundForm">
-                            <div class="row">
-                                <form class="col s10 offset-s1">
-                                    <div class="row">
-                                        <div class="input-field col s4">
-                                            <input id="first_name" type="text" >
-                                            <label for="first_name">Username (Phone Number):</label>
-                                        </div>
-                                        <div class="input-field col s4">
-                                            <input id="first_name" type="text" >
-                                            <label for="first_name">Amount :</label>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="row">
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s4">
-                                            <input id="password" type="password" >
-                                            <label for="password">Password</label>
-                                        </div>
-
-
-                                    </div>
-
-                                </form>
-                            </div>
-                            <a href="#" class="waves-effect btn-flat blue modal-close" onclick="toast('New Account Created for Username', 4000)">Submit</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Clear All</a>
-                            <a href="#" class="waves-effect btn-flat blue modal-close">Cancel</a>
-
-
-                        </div>
-
-
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <div id="test4" class="col s12 animated fadeInUp">
-
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="mdi-device-devices"></i>See Individual PC Earnings</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <label>Materialize Select</label>
-                        <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-
-                        <label>Browser Select</label>
-                        <select class="disabled">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
-                    <div class="collapsible-body grey lighten-3">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-    </div>
-
-    <script>
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-            $('ul.tabs').tabs();
-            $('.modal-trigger').leanModal();
-            $('select').material_select();
-        });
-    </script>
-    <script type="text/javascript" src="js/materialize.js"></script>
 
 </body>
 

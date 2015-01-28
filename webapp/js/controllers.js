@@ -35,10 +35,13 @@ $http.get('peopleOnline.php').
     });
     }
     
+
     $interval(xhr, 5000);
     $interval(income, 5001);
     $interval(unique, 5002);
     $scope.obj=obj;
+    
+    
 });
 
 stealthApp.controller('newUser',
@@ -95,4 +98,12 @@ $scope.newUserSubmit=function(){
  
  
 };
+});
+
+stealthApp.controller('billingTab', function($scope){
+
+    function reload(){
+        $('select').material_select();
+    }
+
 });

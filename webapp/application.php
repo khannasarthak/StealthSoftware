@@ -198,24 +198,22 @@
                         <div class="collapsible-header"><i class="mdi-social-person"></i>Existing User</div>
                         <div class="collapsible-body grey lighten-3">
                             <div class="row">&nbsp;</div>
-                            <div class="container">
+                            <div class="container" ng-controller="existingUser">
 
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s4">
                                             <i class="mdi-communication-phone prefix"></i>
-                                            <input id="username" type="text">
+                                            <input id="username" type="text" ng-model="userContact">
                                             <label for="username">Contact</label>
                                         </div>
 
                                         <div class="col s4">
-                                            <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                            <button ng-click="fetchData()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                 <i class="mdi-content-send right"></i>
                                             </button>
                                         </div>
-                                        <div class="col s4">
-                                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
-                                        </div>
+                                        
                                     </div>
 
 
@@ -275,7 +273,7 @@
                         </li>
                     </ul>
                     </div>
-                    <div id="test3" class="col s12 animated fadeInUp" ng-controller="billingTab">
+                    <div id="test3" class="col s12 animated fadeInUp">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
                                 <div class="collapsible-header"><i class="mdi-action-payment"></i>Recharge</div>
@@ -311,12 +309,12 @@
                                                         <label for="money">Amount</label>
                                                     </div>
                                                     <div class="col s3">
-                                                        <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                             <i class="mdi-content-send right"></i>
                                                         </button>
                                                     </div>
                                                     <div class="col s3">
-                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
 
                                                     </div>
 
@@ -354,12 +352,12 @@
 
                                                 <div class="row">
                                                     <div class="col s6">
-                                                        <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                             <i class="mdi-content-send right"></i>
                                                         </button>
                                                     </div>
                                                     <div class="col s6">
-                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
 
 
                                                     </div>
@@ -388,12 +386,12 @@
                                         </div>
 
                                         <div class="col s4">
-                                            <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                            <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                 <i class="mdi-content-send right"></i>
                                             </button>
                                         </div>
                                         <div class="col s4">
-                                            <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                            <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
                                         </div>
                                     </div>
 
@@ -432,6 +430,7 @@
                 </div>
             </div>
             <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/Chart.js"></script>
             <script>
                 $(document).ready(function () {
                     $('.collapsible').collapsible();

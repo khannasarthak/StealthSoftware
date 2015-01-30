@@ -130,158 +130,182 @@
             </div>
         </div>
         <div class="row">
-            <div id="test1" class="col s12 fadeInUp">
-                <ul class="collapsible">
+            <div id="test1" class="col s12 animated fadeInUp">
+                <ul class="collapsible" data-collapsible="accordion">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-1"></i>Change Password</div>
-                        <div class="collapsible-body">
-                            <div class="row">
-                                <form class="col s12">
+                        <div class="collapsible-header"><i class="mdi-social-person-add"></i>Change Password</div>
+                        <div class="collapsible-body grey lighten-3">
 
 
+
+
+                            <div class="row" ng-controller="newUser">
+                                <div class="container">
+                                    <form novalidate class="col s12">
+
+
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-action-lock prefix"></i>
+                                                <input id="password" type="password" ng-model="userPwd">
+                                                <label for="password">New Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-action-lock prefix"></i>
+                                                <input id="password" type="password" ng-model="userPwd">
+                                                <label for="password">Confirm New Password</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col s4">
+                                                <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                    <i class="mdi-content-send right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col s4">
+                                                <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+                                            </div>
+                                        </div>
+
+                                    </form>
                                     <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
-                                            <label for="password">Old Password</label>
-                                        </div>
-
-                                        <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
-                                            <label for="password">New Password</label>
-                                        </div>
-                                        <div class="input-field col s12">
-                                            <input id="password" type="password" class="validate">
-                                            <label for="password">Confirm New Password</label>
-                                        </div>
+                                        {{newUser.error}}
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action" onclick="toast('Password Changed Succesfully', 3000)">Change Password
-                                <i class="mdi-content-send right"></i>
-                            </button>
+
+</div>
 
 
                         </div>
                     </li>
 
 
+                    <div id="test2" class="col s12 fadeInUp">
+                        <ul class="collapsible">
 
-                </ul>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-device-access-time"></i>Your Previous Sessions</div>
+                                      <div class="collapsible-body grey lighten-3">
+                                <div class="row">
+                                    <table class="hoverable centered">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno</th>
+                                                <th data-field="id">Price</th>
+                                                <th data-field="name">Cycle</th>
+                                                <th data-field="price">Period</th>
+                                            </tr>
+                                        </thead>
 
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Alvin</td>
+                                                <td>Eclair</td>
+                                                <td>$0.87</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Alan</td>
+                                                <td>Jellybean</td>
+                                                <td>$3.76</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Jonathan</td>
+                                                <td>Lollipop</td>
+                                                <td>$7.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                              
+                        </li>
+                    </ul>
+                    </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="test3" class="col s12 fadeInUp">
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-image-filter-1"></i>See Previous Top Ups</div>
+                                <div class="collapsible-body">
+                                    <table class="bordered">
+                                        <thead>
+                                            <tr>
+                                                <th data-field="id">Time</th>
+                                                <th data-field="name">Plan Name</th>
+                                                <th data-field="price">Amount</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Alvin</td>
+                                                <td>Eclair</td>
+                                                <td>$0.87</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alan</td>
+                                                <td>Jellybean</td>
+                                                <td>$3.76</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jonathan</td>
+                                                <td>Lollipop</td>
+                                                <td>$7.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-image-filter-2"></i>Refund</div>
+                                <div class="collapsible-body">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div id="test4" class="col s12 fadeInUp">
+
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-image-filter-1"></i>See Total Hours Played</div>
+                                <div class="collapsible-body">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-image-filter-2"></i>See Weekly Details</div>
+                                <div class="collapsible-body">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="mdi-image-filter-3"></i>See Monthly Details</div>
+                                <div class="collapsible-body">
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
             </div>
-            <div id="test2" class="col s12 fadeInUp">
-                <ul class="collapsible">
 
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-maps-place"></i>Your Previous Sessions</div>
-                        <div class="collapsible-body">
-                            <table class="bordered">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Date</th>
-                                        <th data-field="name">Session Start</th>
-                                        <th data-field="price">Session End</th>
-                                        <th data-field="currentBal">Balance at Session End</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>$0.87</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>$0.87</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>$0.87</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-            <div id="test3" class="col s12 fadeInUp">
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-1"></i>See Previous Top Ups</div>
-                        <div class="collapsible-body">
-                            <table class="bordered">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Time</th>
-                                        <th data-field="name">Plan Name</th>
-                                        <th data-field="price">Amount</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-2"></i>Refund</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-
-
-                </ul>
-            </div>
-            <div id="test4" class="col s12 fadeInUp">
-
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-1"></i>See Total Hours Played</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-2"></i>See Weekly Details</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-image-filter-3"></i>See Monthly Details</div>
-                        <div class="collapsible-body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
+        
+    
 
 
 
@@ -290,9 +314,17 @@
 
 
 
-
-        <!-- <script type="text/javascript" src="js/prism.js"></script>-->
-        <script type="text/javascript" src="js/materialize.js"></script>
+    <!-- <script type="text/javascript" src="js/prism.js"></script>-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/Chart.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.collapsible').collapsible();
+                    $('ul.tabs').tabs();
+                    $('.modal-trigger').leanModal();
+                    $('select').material_select();
+                });
+            </script>
 </body>
 
 

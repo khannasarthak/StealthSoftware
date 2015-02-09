@@ -6,7 +6,7 @@ $json=array();
 
 $contact=$params->number;
 
-$mysqli=mysqli_connect('localhost','root','','stealth');
+$mysqli=mysqli_connect('localhost','root','password','stealth');
 
 $query = "SELECT `contact`, `uname`, `joindate`, `level` FROM `users` WHERE `contact` = '$contact';";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));

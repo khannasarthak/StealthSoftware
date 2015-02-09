@@ -130,3 +130,139 @@ stealthApp.controller('existingUser', function ($scope, $http) {
     };
 
 });
+
+stealthApp.controller('recharge',
+    function ($scope, $http) {
+        
+        var formSubmit = false;
+
+        $scope.clear = function () {
+            $scope.amount = "";
+            $scope.userContact = "";
+        };
+
+        $scope.$watch("userContact", function () {
+            if ($scope.userContact.length == 10) {
+                $http.post('checkNumber.php', {
+                    "number": $scope.userContact
+                }).
+                success(function (data, status, headers, config) {
+                    if (data > 0) {
+                        formSubmit = true;
+                    } else {
+                        formSubmit = false;
+                    }
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+        });
+
+        $scope.recharge = function () {
+            if (formSubmit == true) {
+                $http.post('recharge.php', {
+                    "number": $scope.userContact,
+                    "amount": $scope.amount
+                }).
+                success(function (data, status, headers, config) {
+                    if (data > 0) {
+                        toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Recharge Successful</span>', 4000);
+                        $scope.clear();
+                    } else {
+                        toast('Recharge Failed', 4000);
+                        $scope.clear();
+                    }
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            } else {
+                toast('No such user', 4000);
+            }
+
+
+        };
+    });
+
+stealthApp.controller('refund',
+    function ($scope, $http) {
+        
+        var formSubmit = false;
+
+        $scope.clear = function () {
+            $scope.amount = "";
+            $scope.userContact = "";
+        };
+
+        $scope.$watch("userContact", function () {
+            if ($scope.userContact.length == 10) {
+                $http.post('checkNumber.php', {
+                    "number": $scope.userContact
+                }).
+                success(function (data, status, headers, config) {
+                    if (data > 0) {
+                        formSubmit = true;
+                    } else {
+                        formSubmit = false;
+                    }
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+        });
+
+        $scope.refund = function () {
+            if (formSubmit == true) {
+                $scope.amount=-1*$scope.amount;
+                $http.post('recharge.php', {
+                    "number": $scope.userContact,
+                    "amount": $scope.amount
+                }).
+                success(function (data, status, headers, config) {
+                    if (data > 0) {
+                        toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Refund Successful</span>', 4000);
+                        $scope.clear();
+                    } else {
+                        toast('Refund Failed', 4000);
+                        $scope.clear();
+                    }
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            } else {
+                toast('No such user', 4000);
+            }
+
+
+        };
+    });
+
+stealthApp.controller('pricingTable',
+    function ($scope, $http, $interval) {
+    
+    var pricings={};
+    
+        function getPricing() {
+            $http.get('pricingTable.php').
+            success(function (data, status, headers, config) {
+                pricings = JSON.parse(data);
+            }).
+            error(function (data, status, headers, config) {
+                pricings = 'ERROR';
+            });
+        }
+
+
+        getPricing();
+    
+    $interval(console.log(pricings),1000);
+
+
+    });

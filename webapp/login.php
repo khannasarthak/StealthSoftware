@@ -4,7 +4,7 @@ $username = $_POST['number'];
 $password = $_POST['pwd'];
 $system=$_POST['system'];
 
-$mysqli=mysqli_connect('localhost','root','','stealth');
+$mysqli=mysqli_connect('localhost','root','password','stealth');
 
 $query="SELECT `number` FROM `systems` WHERE `group` = '$system' AND `loggedIn` = '0' ORDER BY `number` LIMIT 1";
 

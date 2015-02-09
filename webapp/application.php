@@ -233,34 +233,23 @@
                             <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
                             <div class="collapsible-body grey lighten-3">
                                 <div class="row">
-                                    <table class="hoverable centered">
+                                    <table class="hoverable centered" ng-controller="pricingTable">
                                         <thead>
                                             <tr>
                                                 <th>Sno</th>
-                                                <th data-field="id">Price</th>
-                                                <th data-field="name">Cycle</th>
-                                                <th data-field="price">Period</th>
+                                                <th data-field="id">Code</th>
+                                                <th data-field="price">Price</th>
+                                                <th data-field="cycle">Cycle</th>
+                                                <th data-field="period">Period</th>
                                             </tr>
                                         </thead>
 
-                                        <tbody>
+                                        <tbody ng-repeat="pricing in pricings">
                                             <tr>
-                                                <td>1</td>
-                                                <td>Alvin</td>
-                                                <td>Eclair</td>
-                                                <td>$0.87</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alan</td>
-                                                <td>Jellybean</td>
-                                                <td>$3.76</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Jonathan</td>
-                                                <td>Lollipop</td>
-                                                <td>$7.00</td>
+                                                <td>{{pricing.sno}}</td>
+                                                <td>{{pricing.price}}</td>
+                                                <td>{{pricing.cycle}}</td>
+                                                <td>&#8377;{{pricing.period}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -278,26 +267,18 @@
                             <li>
                                 <div class="collapsible-header"><i class="mdi-action-payment"></i>Recharge</div>
                                 <div class="collapsible-body grey lighten-3">
-                                    <div class="container">
+                                    <div class="container" ng-controller="recharge">
                                         <div class="row">
 
                                             <form class="col s12">
                                                 <div class="row">
                                                     <div class="input-field col s6">
                                                         <i class="mdi-communication-phone prefix"></i>
-                                                        <input id="first_name" type="text">
+                                                        <input id="first_name" type="text" ng-model="userContact">
                                                         <label for="first_name">Contact</label>
                                                     </div>
 
-                                                    <div class="col s6">
-                                                        <label>Pricing Plan</label>
-                                                        <select>
-                                                            <option value="" disabled selected>Choose your option</option>
-                                                            <option value="1">Option 1</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
-                                                        </select>
-                                                    </div>
+                                                    
 
                                                 </div>
 
@@ -305,16 +286,16 @@
 
                                                     <div class="input-field col s6">
                                                         <i class="mdi-editor-attach-money prefix"></i>
-                                                        <input id="money" type="text">
+                                                        <input id="money" type="text" ng-model="amount">
                                                         <label for="money">Amount</label>
                                                     </div>
                                                     <div class="col s3">
-                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="recharge()">SUBMIT
                                                             <i class="mdi-content-send right"></i>
                                                         </button>
                                                     </div>
                                                     <div class="col s3">
-                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
+                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
 
                                                     </div>
 
@@ -331,19 +312,19 @@
                             </li>
                             <li>
                                 <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
-                                <div class="collapsible-body grey lighten-3">
+                                <div class="collapsible-body grey lighten-3" ng-controller="refund">
                                     <div class="container">
                                         <div class="row">
                                             <form class="col s10 offset-s1">
                                                 <div class="row">
                                                     <div class="input-field col s6">
                                                         <i class="mdi-communication-phone prefix"></i>
-                                                        <input id="first_name" type="text">
+                                                        <input id="first_name" type="text" ng-model="userContact">
                                                         <label for="first_name">Contact</label>
                                                     </div>
                                                     <div class="input-field col s6">
                                                         <i class="mdi-editor-attach-money prefix"></i>
-                                                        <input id="first_name" type="text">
+                                                        <input id="first_name" type="text" ng-model="amount">
                                                         <label for="first_name">Amount</label>
                                                     </div>
 
@@ -352,12 +333,12 @@
 
                                                 <div class="row">
                                                     <div class="col s6">
-                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="refund()">SUBMIT
                                                             <i class="mdi-content-send right"></i>
                                                         </button>
                                                     </div>
                                                     <div class="col s6">
-                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
+                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right" ng-click="clear()"></i></a>
 
 
                                                     </div>

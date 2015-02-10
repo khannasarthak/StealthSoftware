@@ -250,9 +250,9 @@
                     <ul class="collapsible" data-collapsible="accordion">
                         <li>
                             <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
-                            <div class="collapsible-body grey lighten-3">
+                            <div class="collapsible-body grey lighten-3" ng-controller="pricingTable">
                                 <div class="row">
-                                    <table class="hoverable centered" ng-controller="pricingTable">
+                                    <table class="hoverable centered">
                                         <thead>
                                             <tr>
                                                 <th>Sno</th>
@@ -263,24 +263,29 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody ng-repeat="pricing in pricings">
-                                            <tr>
-                                                <td>{{pricing.sno}}</td>
-                                                <td>{{pricing.price}}</td>
-                                                <td>{{pricing.cycle}}</td>
-                                                <td>&#8377;{{pricing.period}}</td>
+                                        <tbody>
+                                            <tr ng-repeat="single in pricings">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{single.code}}</td>
+                                                <td>&#8377;{{single.amount}}</td>
+                                                <td>{{single.cycle}}</td>
+                                                <td>{{single.timevalue}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row">
-                                    <div class="col offset-s5"><a class="waves-effect waves-light btn-large"><i class="mdi-content-add left"></i>ADD NEW</a>
+                                    <div class="col offset-s3"><a class="waves-effect waves-light btn-large"><i class="mdi-content-add left"></i>ADD</a>
                                     </div>
+                                    <div class="col"><a class="waves-effect waves-light btn-large" ng-click="getPricing()"><i class="mdi-navigation-refresh left"></i>REFRESH</a>
+                                    </div>
+                                    
 
                                 </div>
-                        </li>
-                    </ul>
+                        
                     </div>
+                            </li>
+                    </ul>
                     <div id="test3" class="col s12 animated fadeInUp">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>

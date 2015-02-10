@@ -254,22 +254,20 @@ stealthApp.controller('refund',
 stealthApp.controller('pricingTable',
     function ($scope, $http, $interval) {
     
-    var pricings={};
+    $scope.pricings={};
     
-        function getPricing() {
+        $scope.getPricing=function() {
+            
             $http.get('pricingTable.php').
             success(function (data, status, headers, config) {
-                pricings = JSON.parse(data);
+                $scope.pricings = angular.fromJson(data);
             }).
             error(function (data, status, headers, config) {
-                pricings = 'ERROR';
+                $scope.pricings = 'ERROR';
             });
+            
+            
         }
-
-
-        getPricing();
-    
-    $interval(console.log(pricings),1000);
-
+    $scope.getPricing();
 
     });

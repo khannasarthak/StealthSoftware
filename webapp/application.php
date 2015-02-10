@@ -196,9 +196,9 @@
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-person"></i>Existing User</div>
-                        <div class="collapsible-body grey lighten-3">
+                        <div class="collapsible-body grey lighten-3" ng-controller="existingUser">
                             <div class="row">&nbsp;</div>
-                            <div class="container" ng-controller="existingUser">
+                            <div class="container">
 
                                 <form class="col s12">
                                     <div class="row">
@@ -213,7 +213,7 @@
                                                 <i class="mdi-content-send right"></i>
                                             </button>
                                         </div>
-                                        
+
                                     </div>
 
 
@@ -226,6 +226,25 @@
                     </li>
                 </ul>
 
+                <div id="existingModal" class="modal">
+    <h4>{{name}}</h4>
+                    <p><div class="row">
+                        <div class="col s6">&#8377;{{amount}}</div>
+                        <div class="col s6"><i class="mdi-action-call"></i>{{contact}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">{{join}}</div>
+                        <div class="col s6">{{level}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6"><i class="mdi-action-credit-card"></i>{{plan}}</div>
+                        <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{system}}</div>
+                    </div></p>
+    <div class="action-bar">
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+    </div>
+  </div>
+                
                 </div>
                 <div id="test2" class="col s12 animated fadeInUp">
                     <ul class="collapsible" data-collapsible="accordion">
@@ -358,31 +377,31 @@
                                 <div class="collapsible-body grey lighten-3">
                                     <div class="container">
 
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s4">
-                                            <i class="mdi-communication-phone prefix"></i>
-                                            <input id="username" type="text">
-                                            <label for="username">Contact</label>
-                                        </div>
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="input-field col s4">
+                                                    <i class="mdi-communication-phone prefix"></i>
+                                                    <input id="username" type="text">
+                                                    <label for="username">Contact</label>
+                                                </div>
 
-                                        <div class="col s4">
-                                            <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
-                                                <i class="mdi-content-send right"></i>
-                                            </button>
-                                        </div>
-                                        <div class="col s4">
-                                            <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
-                                        </div>
+                                                <div class="col s4">
+                                                    <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                        <i class="mdi-content-send right"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col s4">
+                                                    <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </form>
+
+
                                     </div>
-
-
-
-
-                                </form>
-
-
-                            </div>
                                 </div>
                             </li>
 
@@ -397,7 +416,7 @@
                                     <p>Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </li>
-                            
+
                             <li>
                                 <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
                                 <div class="collapsible-body grey lighten-3">
@@ -411,12 +430,12 @@
                 </div>
             </div>
             <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/Chart.js"></script>
+            <script type="text/javascript" src="js/Chart.js"></script>
             <script>
                 $(document).ready(function () {
                     $('.collapsible').collapsible();
                     $('ul.tabs').tabs();
-                    $('.modal-trigger').leanModal();
+                    $('#existingModal').leanModal();
                     $('select').material_select();
                 });
             </script>

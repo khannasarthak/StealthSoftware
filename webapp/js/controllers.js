@@ -113,10 +113,17 @@ stealthApp.controller('existingUser', function ($scope, $http) {
         success(function (data, status, headers, config) {
             if (data == 0) {
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User not found</span>', 4000);
-                $scope.clear();
+                
             } else {
-                console.log(data);
-                $scope.clear();
+                $scope.name=data.name;
+                $scope.amount=data.balance;
+                $scope.contact=data.contact;
+                $scope.join=data.join;
+                $scope.level=data.level;
+                $scope.plan=data.plan;
+                $scope.system=data.system;
+                console.log($scope);
+               $('#existingUser').openModal();
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Query Successful</span>', 4000);
             }
         }).

@@ -209,7 +209,7 @@
                                         </div>
 
                                         <div class="col s4">
-                                            <button ng-click="fetchData()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                            <button ng-click="fetchData()" class="btn waves-effect waves-light modal-trigger" type="submit" id="submit" value="Submit">SUBMIT
                                                 <i class="mdi-content-send right"></i>
                                             </button>
                                         </div>
@@ -227,24 +227,24 @@
                 </ul>
 
                 <div id="existingModal" class="modal">
-    <h4>{{name}}</h4>
-                    <p><div class="row">
-                        <div class="col s6">&#8377;{{amount}}</div>
-                        <div class="col s6"><i class="mdi-action-call"></i>{{contact}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6">{{join}}</div>
-                        <div class="col s6">{{level}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6"><i class="mdi-action-credit-card"></i>{{plan}}</div>
-                        <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{system}}</div>
-                    </div></p>
-    <div class="action-bar">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
-  </div>
-                
+                    <h4>{{name}}</h4>
+                    <p>
+                        <div class="row">
+                            <div class="col s6">&#8377;{{amount}}</div>
+                            <div class="col s6"><i class="mdi-action-call"></i>{{contact}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6">{{join}}</div>
+                            <div class="col s6">{{level}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6"><i class="mdi-action-credit-card"></i>{{plan}}</div>
+                            <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{system}}</div>
+                        </div>
+                    </p>
+
+                </div>
+
                 </div>
                 <div id="test2" class="col s12 animated fadeInUp">
                     <ul class="collapsible" data-collapsible="accordion">
@@ -275,17 +275,41 @@
                                     </table>
                                 </div>
                                 <div class="row">
-                                    <div class="col offset-s3"><a class="waves-effect waves-light btn-large"><i class="mdi-content-add left"></i>ADD</a>
+                                  <div class="col s3">
+                                    <i class="mdi-editor-attach-money prefix"></i>
+                                    <input id="price" type="text">
+        <label for="price">Cost</label>
+                                  </div>
+                                  <div class="col s3">
+                                    <select>
+      <option value="" disabled selected>Choose cycle</option>
+      <option value="hour">Hourly</option>
+      <option value="day">Daily</option>
+      <option value="week">Weekly</option>
+      <option value="month">Monthly</option>
+      <option value="year">Yearly</option>
+    </select>
+                                  </div>
+                                  <div class="col s3">
+                                    <i class="mdi-device-access-time prefix"></i>
+          <input id="period" type="text">
+          <label for="period">Period</label>
+                                  </div>
+                                  <div class="col s3">
+                                    <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>ADD</a>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <a class="btn-floating btn-large waves-effect waves-light"><i class="mdi-navigation-refresh"></i></a>
                                     </div>
-                                    <div class="col"><a class="waves-effect waves-light btn-large" ng-click="getPricing()"><i class="mdi-navigation-refresh left"></i>REFRESH</a>
-                                    </div>
-                                    
+
 
                                 </div>
-                        
-                    </div>
-                            </li>
+
+                            </div>
+                        </li>
                     </ul>
+                    </div>
                     <div id="test3" class="col s12 animated fadeInUp">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
@@ -302,7 +326,7 @@
                                                         <label for="first_name">Contact</label>
                                                     </div>
 
-                                                    
+
 
                                                 </div>
 
@@ -440,7 +464,7 @@
                 $(document).ready(function () {
                     $('.collapsible').collapsible();
                     $('ul.tabs').tabs();
-                    $('#existingModal').leanModal();
+
                     $('select').material_select();
                 });
             </script>

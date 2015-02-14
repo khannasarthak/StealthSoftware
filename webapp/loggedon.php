@@ -7,7 +7,7 @@ $num_row = mysqli_num_rows($result);
 
 $row=mysqli_fetch_array($result);
 		if( $num_row >=1 ) {
-			 echo $row['loggedin']; 
+			 echo $row['loggedin'];
 		}
 		else{
 			echo 'false';

@@ -64,6 +64,7 @@ stealthApp.controller('newUser',
                 success(function (data, status, headers, config) {
                     if (data > 0) {
                         formSubmit = false;
+                        toast('User already exists in the system', 4000);
                     } else {
                         formSubmit = true;
                     }
@@ -113,7 +114,7 @@ stealthApp.controller('existingUser', function ($scope, $http) {
         success(function (data, status, headers, config) {
             if (data == 0) {
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User not found</span>', 4000);
-                
+
             } else {
                 $scope.name=data.name;
                 $scope.amount=data.balance;
@@ -123,6 +124,7 @@ stealthApp.controller('existingUser', function ($scope, $http) {
                 $scope.plan=data.plan;
                 $scope.system=data.system;
                 console.log($scope);
+                console.log("I am here");
                $('#existingUser').openModal();
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Query Successful</span>', 4000);
             }
@@ -140,7 +142,7 @@ stealthApp.controller('existingUser', function ($scope, $http) {
 
 stealthApp.controller('recharge',
     function ($scope, $http) {
-        
+
         var formSubmit = false;
 
         $scope.clear = function () {
@@ -196,7 +198,7 @@ stealthApp.controller('recharge',
 
 stealthApp.controller('refund',
     function ($scope, $http) {
-        
+
         var formSubmit = false;
 
         $scope.clear = function () {
@@ -253,11 +255,11 @@ stealthApp.controller('refund',
 
 stealthApp.controller('pricingTable',
     function ($scope, $http, $interval) {
-    
+
     $scope.pricings={};
-    
+
         $scope.getPricing=function() {
-            
+
             $http.get('pricingTable.php').
             success(function (data, status, headers, config) {
                 $scope.pricings = angular.fromJson(data);
@@ -265,8 +267,8 @@ stealthApp.controller('pricingTable',
             error(function (data, status, headers, config) {
                 $scope.pricings = 'ERROR';
             });
-            
-            
+
+
         }
     $scope.getPricing();
 

@@ -13,6 +13,6 @@ $num_row = mysqli_num_rows($result);
 
 $row=mysqli_fetch_array($result);
 
-echo $row['count']; 
+echo $row['count'];
 
 ?>

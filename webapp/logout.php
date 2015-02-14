@@ -57,23 +57,23 @@ switch($cycle){
 case "month":
     $timeDiff=$timeDiff/2592000;
     break;
-    
+
 case "hour":
     $timeDiff=$timeDiff/3600;
     break;
-    
+
 case "day":
     $timeDiff=$timeDiff/86400;
     break;
-    
+
 case "week":
     $timeDiff=$timeDiff/604800;
     break;
-    
+
 case "year":
     $timeDiff=$timeDiff/31556926;
     break;
-    
+
 default: echo "Wrong Cycle Type";
 }
 

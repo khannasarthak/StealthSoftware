@@ -24,7 +24,7 @@ $num_row = mysqli_num_rows($result);
 
 $query="INSERT INTO `stealth`.`loggedon` (`user`, `system`, `time`) VALUES ('$username', '$system', CURRENT_TIMESTAMP);";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
-$query = "SELECT uname FROM users WHERE contact='$username' AND password='$password'";
+$query = "SELECT `uname`,`level` FROM users WHERE contact='$username' AND password='$password'";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $num_row = mysqli_num_rows($result);
 
@@ -32,7 +32,9 @@ $num_row = mysqli_num_rows($result);
 		if( $num_row >=1 ) {
 			$_SESSION['user_name']=$row['uname'];
             $_SESSION['contact']=$username;
-			echo 1;
+						$_SESSION['level']=$row['level'];
+
+						echo $row['level'];
 		}
 		else{
 			echo 'false';

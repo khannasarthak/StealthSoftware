@@ -31,9 +31,15 @@
                     data: "number=" + username + "&pwd=" + password + "&system=PC",
 
                     success: function (html) {
-                        if (html == 1) {
+                        if (html == 2) {
                             window.location.href = "application.php";
-                        } else {
+                        }
+
+                        else if(html == 1){
+
+                          window.location.href = "user.php";
+                        }
+                         else {
                             //Shake animation effect.
                             $("#loginCard").shake();
                             $("#error").html("<span style='color:#cc0000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error:</span> Invalid username or password. ");

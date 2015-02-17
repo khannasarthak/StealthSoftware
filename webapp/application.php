@@ -23,7 +23,9 @@
 </head>
 
 <body class="blue">
+
     <div class="container">
+
         <div class="row animated fadeInDown" id="navBar">
             <nav class="white">
                 <div class="nav-wrapper">
@@ -122,6 +124,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="row">
             <div id="test1" class="col s12 animated fadeInUp">
                 <ul class="collapsible" data-collapsible="accordion">
@@ -197,8 +200,10 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-person"></i>Existing User</div>
                         <div class="collapsible-body grey lighten-3" ng-controller="existingUser">
+
                             <div class="row">&nbsp;</div>
                             <div class="container">
+                              <div class="row">
 
                                 <form class="col s12">
                                     <div class="row">
@@ -222,28 +227,43 @@
                                 </form>
 
 
-                            </div>
+</div>
+<div class="container">
+  <div class="container">
+<div class="row">
+<div class="col s12 card">
+
+      <h4> {{object[0].name}}</h4>
+
+          <div class="row">
+              <div class="col s6">&#8377;{{object[0].balance}}</div>
+              <div class="col s6"><i class="mdi-communication-call"></i>{{object[0].contact}}</div>
+          </div>
+          <div class="row">
+              <div class="col s6"><i class="mdi-action-today"></i>{{object[0].join}}</div>
+              <div class="col s6"><i class="mdi-action-star-rate"></i>{{object[0].level}}</div>
+          </div>
+          <div class="row">
+              <div class="col s6"><i class="mdi-action-credit-card"></i>{{object[0].plan}}</div>
+
+              <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{object[0].system}}</div>
+          </div>
+
+
+
+</div>
+
+</div></div>
+                            </div></div>
+
+                        </div>
+                      </div>
                     </li>
                 </ul>
 
-                <div id="existingModal" class="modal">
-                    <h4>{{name}}</h4>
-                    <p>
-                        <div class="row">
-                            <div class="col s6">&#8377;{{amount}}</div>
-                            <div class="col s6"><i class="mdi-action-call"></i>{{contact}}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6">{{join}}</div>
-                            <div class="col s6">{{level}}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6"><i class="mdi-action-credit-card"></i>{{plan}}</div>
-                            <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{system}}</div>
-                        </div>
-                    </p>
 
-                </div>
+
+
 
                 </div>
                 <div id="test2" class="col s12 animated fadeInUp">
@@ -459,7 +479,7 @@
                 </div>
             </div>
             <script type="text/javascript" src="js/materialize.js"></script>
-            <script type="text/javascript" src="js/Chart.js"></script>
+            <!--script type="text/javascript" src="js/Chart.js"></script-->
             <script>
                 $(document).ready(function () {
                     $('.collapsible').collapsible();

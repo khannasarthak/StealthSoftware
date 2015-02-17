@@ -106,26 +106,24 @@ stealthApp.controller('newUser',
     });
 
 stealthApp.controller('existingUser', function ($scope, $http) {
+  $scope.object={};
 
     $scope.fetchData = function () {
         $http.post('existingUser.php', {
             "number": $scope.userContact
         }).
         success(function (data, status, headers, config) {
+
             if (data == 0) {
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User not found</span>', 4000);
 
             } else {
-                $scope.name=data.name;
-                $scope.amount=data.balance;
-                $scope.contact=data.contact;
-                $scope.join=data.join;
-                $scope.level=data.level;
-                $scope.plan=data.plan;
-                $scope.system=data.system;
+              $scope.object=angular.fromJson(data);
+
                 console.log($scope);
-                console.log("I am here");
-               $('#existingUser').openModal();
+                console.log(data);
+                console.log($scope.object);
+                console.log($scope.object[0].balance);
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Query Successful</span>', 4000);
             }
         }).

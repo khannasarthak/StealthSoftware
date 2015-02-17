@@ -295,13 +295,13 @@
                                     </table>
                                 </div>
                                 <div class="row">
-
-                                    <i class="col s2 mdi-editor-attach-money prefix"></i>
-                                    <input class="col s2" id="price" type="text">
+                                  <div class="col s3">
+                                    <i class="mdi-editor-attach-money prefix"></i>
+                                    <input id="price" type="text">
         <label for="price">Cost</label>
-
-
-                                    <select class="col s2">
+                                  </div>
+                                  <div class="col s3">
+                                    <select>
       <option value="" disabled selected>Choose cycle</option>
       <option value="hour">Hourly</option>
       <option value="day">Daily</option>
@@ -309,13 +309,13 @@
       <option value="month">Monthly</option>
       <option value="year">Yearly</option>
     </select>
-
-
-                                    <i class="col s2 mdi-device-access-time prefix"></i>
-          <input class="col s2" id="period" type="text">
+                                  </div>
+                                  <div class="col s3">
+                                    <i class="mdi-device-access-time prefix"></i>
+          <input id="period" type="text">
           <label for="period">Period</label>
                                   </div>
-                                  <div class="col s2">
+                                  <div class="col s3">
                                     <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>ADD</a>
                                   </div>
                                 </div>
@@ -328,9 +328,8 @@
 
                             </div>
                         </li>
-
                     </ul>
-                  
+                    </div>
                     <div id="test3" class="col s12 animated fadeInUp">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>

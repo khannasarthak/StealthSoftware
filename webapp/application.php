@@ -34,7 +34,8 @@
                         <li class="grey-text">
                             <?php echo $_SESSION[ 'user_name']; ?>
                         </li>
-                        <li><a class="grey-text" href="logout.php">logout</a>
+                        <li>
+                            <a class="grey-text" href="logout.php">logout</a>
                         </li>
                     </ul>
                 </div>
@@ -108,6 +109,9 @@
 
 
         </div>
+
+
+
         <div class="row animated fadeIn">
             <div class="col s12">
                 <ul class="tabs">
@@ -203,22 +207,247 @@
 
                             <div class="row">&nbsp;</div>
                             <div class="container">
-                              <div class="row">
+                                <div class="row">
+
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s4">
+                                                <i class="mdi-communication-phone prefix"></i>
+                                                <input id="username" type="text" ng-model="userContact">
+                                                <label for="username">Contact</label>
+                                            </div>
+
+                                            <div class="col s4">
+                                                <button ng-click="fetchData()" class="btn waves-effect waves-light modal-trigger" type="submit" id="submit" value="Submit">SUBMIT
+                                                    <i class="mdi-content-send right"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                    </form>
+
+
+                                </div>
+                                <div class="container">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col s12 card">
+
+                                                <h4> {{object[0].name}}</h4>
+
+                                                <div class="row">
+                                                    <div class="col s6">&#8377;{{object[0].balance}}</div>
+                                                    <div class="col s6"><i class="mdi-communication-call"></i>{{object[0].contact}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col s6"><i class="mdi-action-today"></i>{{object[0].join}}</div>
+                                                    <div class="col s6"><i class="mdi-action-star-rate"></i>{{object[0].level}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col s6"><i class="mdi-action-credit-card"></i>{{object[0].plan}}</div>
+
+                                                    <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{object[0].system}}</div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+                </ul>
+
+
+
+
+            </div>
+
+            <div id="test2" class="col s12 animated fadeInUp">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
+                        <div class="collapsible-body grey lighten-3" ng-controller="pricingTable">
+                            <div class="row">
+                                <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            <th>Sno</th>
+                                            <th data-field="id">Code</th>
+                                            <th data-field="price">Price</th>
+                                            <th data-field="cycle">Cycle</th>
+                                            <th data-field="period">Period</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="single in pricings">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{single.code}}</td>
+                                            <td>&#8377;{{single.amount}}</td>
+                                            <td>{{single.cycle}}</td>
+                                            <td>{{single.timevalue}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <i class="mdi-editor-attach-money prefix"></i>
+                                    <input id="price" type="text">
+                                    <label for="price">Cost</label>
+                                </div>
+                                <div class="col s3">
+                                    <select>
+                                        <option value="" disabled selected>Choose cycle</option>
+                                        <option value="hour">Hourly</option>
+                                        <option value="day">Daily</option>
+                                        <option value="week">Weekly</option>
+                                        <option value="month">Monthly</option>
+                                        <option value="year">Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="col s3">
+                                    <i class="mdi-device-access-time prefix"></i>
+                                    <input id="period" type="text">
+                                    <label for="period">Period</label>
+                                </div>
+                                <div class="col s3">
+                                    <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>ADD</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="btn-floating btn-large waves-effect waves-light"><i class="mdi-navigation-refresh"></i></a>
+                            </div>
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="test3" class="col s12 animated fadeInUp">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-payment"></i>Recharge</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <div class="container" ng-controller="recharge">
+                                <div class="row">
+
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-communication-phone prefix"></i>
+                                                <input id="first_name" type="text" ng-model="userContact">
+                                                <label for="first_name">Contact</label>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="input-field col s6">
+                                                <i class="mdi-editor-attach-money prefix"></i>
+                                                <input id="money" type="text" ng-model="amount">
+                                                <label for="money">Amount</label>
+                                            </div>
+                                            <div class="col s3">
+                                                <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="recharge()">SUBMIT
+                                                    <i class="mdi-content-send right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col s3">
+                                                <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
+                        <div class="collapsible-body grey lighten-3" ng-controller="refund">
+                            <div class="container">
+                                <div class="row">
+                                    <form class="col s10 offset-s1">
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-communication-phone prefix"></i>
+                                                <input id="first_name" type="text" ng-model="userContact">
+                                                <label for="first_name">Contact</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <i class="mdi-editor-attach-money prefix"></i>
+                                                <input id="first_name" type="text" ng-model="amount">
+                                                <label for="first_name">Amount</label>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="refund()">SUBMIT
+                                                    <i class="mdi-content-send right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col s6">
+                                                <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right" ng-click="clear()"></i></a>
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <div class="container">
 
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s4">
                                             <i class="mdi-communication-phone prefix"></i>
-                                            <input id="username" type="text" ng-model="userContact">
+                                            <input id="username" type="text">
                                             <label for="username">Contact</label>
                                         </div>
 
                                         <div class="col s4">
-                                            <button ng-click="fetchData()" class="btn waves-effect waves-light modal-trigger" type="submit" id="submit" value="Submit">SUBMIT
+                                            <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                 <i class="mdi-content-send right"></i>
                                             </button>
                                         </div>
-
+                                        <div class="col s4">
+                                            <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
+                                        </div>
                                     </div>
 
 
@@ -227,267 +456,46 @@
                                 </form>
 
 
-</div>
-<div class="container">
-  <div class="container">
-<div class="row">
-<div class="col s12 card">
-
-      <h4> {{object[0].name}}</h4>
-
-          <div class="row">
-              <div class="col s6">&#8377;{{object[0].balance}}</div>
-              <div class="col s6"><i class="mdi-communication-call"></i>{{object[0].contact}}</div>
-          </div>
-          <div class="row">
-              <div class="col s6"><i class="mdi-action-today"></i>{{object[0].join}}</div>
-              <div class="col s6"><i class="mdi-action-star-rate"></i>{{object[0].level}}</div>
-          </div>
-          <div class="row">
-              <div class="col s6"><i class="mdi-action-credit-card"></i>{{object[0].plan}}</div>
-
-              <div class="col s6"><i class="mdi-hardware-desktop-windows"></i>{{object[0].system}}</div>
-          </div>
-
-
-
-</div>
-
-</div></div>
-                            </div></div>
-
-                        </div>
-                      </div>
-                    </li>
-                </ul>
-
-
-
-
-
-                </div>
-                <div id="test2" class="col s12 animated fadeInUp">
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li>
-                            <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
-                            <div class="collapsible-body grey lighten-3" ng-controller="pricingTable">
-                                <div class="row">
-                                    <table class="hoverable centered">
-                                        <thead>
-                                            <tr>
-                                                <th>Sno</th>
-                                                <th data-field="id">Code</th>
-                                                <th data-field="price">Price</th>
-                                                <th data-field="cycle">Cycle</th>
-                                                <th data-field="period">Period</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr ng-repeat="single in pricings">
-                                                <td>{{$index + 1}}</td>
-                                                <td>{{single.code}}</td>
-                                                <td>&#8377;{{single.amount}}</td>
-                                                <td>{{single.cycle}}</td>
-                                                <td>{{single.timevalue}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row">
-                                  <div class="col s3">
-                                    <i class="mdi-editor-attach-money prefix"></i>
-                                    <input id="price" type="text">
-        <label for="price">Cost</label>
-                                  </div>
-                                  <div class="col s3">
-                                    <select>
-      <option value="" disabled selected>Choose cycle</option>
-      <option value="hour">Hourly</option>
-      <option value="day">Daily</option>
-      <option value="week">Weekly</option>
-      <option value="month">Monthly</option>
-      <option value="year">Yearly</option>
-    </select>
-                                  </div>
-                                  <div class="col s3">
-                                    <i class="mdi-device-access-time prefix"></i>
-          <input id="period" type="text">
-          <label for="period">Period</label>
-                                  </div>
-                                  <div class="col s3">
-                                    <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>ADD</a>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <a class="btn-floating btn-large waves-effect waves-light"><i class="mdi-navigation-refresh"></i></a>
-                                    </div>
-
-
-                                </div>
-
                             </div>
-                        </li>
-                    </ul>
-                    </div>
-                    <div id="test3" class="col s12 animated fadeInUp">
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="mdi-action-payment"></i>Recharge</div>
-                                <div class="collapsible-body grey lighten-3">
-                                    <div class="container" ng-controller="recharge">
-                                        <div class="row">
+                        </div>
+                    </li>
 
-                                            <form class="col s12">
-                                                <div class="row">
-                                                    <div class="input-field col s6">
-                                                        <i class="mdi-communication-phone prefix"></i>
-                                                        <input id="first_name" type="text" ng-model="userContact">
-                                                        <label for="first_name">Contact</label>
-                                                    </div>
-
-
-
-                                                </div>
-
-                                                <div class="row">
-
-                                                    <div class="input-field col s6">
-                                                        <i class="mdi-editor-attach-money prefix"></i>
-                                                        <input id="money" type="text" ng-model="amount">
-                                                        <label for="money">Amount</label>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="recharge()">SUBMIT
-                                                            <i class="mdi-content-send right"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
-
-                                                    </div>
-
-                                                </div>
-                                            </form>
-
-
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="mdi-content-undo"></i>Refund</div>
-                                <div class="collapsible-body grey lighten-3" ng-controller="refund">
-                                    <div class="container">
-                                        <div class="row">
-                                            <form class="col s10 offset-s1">
-                                                <div class="row">
-                                                    <div class="input-field col s6">
-                                                        <i class="mdi-communication-phone prefix"></i>
-                                                        <input id="first_name" type="text" ng-model="userContact">
-                                                        <label for="first_name">Contact</label>
-                                                    </div>
-                                                    <div class="input-field col s6">
-                                                        <i class="mdi-editor-attach-money prefix"></i>
-                                                        <input id="first_name" type="text" ng-model="amount">
-                                                        <label for="first_name">Amount</label>
-                                                    </div>
-
-
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s6">
-                                                        <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="refund()">SUBMIT
-                                                            <i class="mdi-content-send right"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right" ng-click="clear()"></i></a>
-
-
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-
-
-
-                                    </div>
-
-
-                                </div>
-                            </li>
-                            <li>
-                                <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
-                                <div class="collapsible-body grey lighten-3">
-                                    <div class="container">
-
-                                        <form class="col s12">
-                                            <div class="row">
-                                                <div class="input-field col s4">
-                                                    <i class="mdi-communication-phone prefix"></i>
-                                                    <input id="username" type="text">
-                                                    <label for="username">Contact</label>
-                                                </div>
-
-                                                <div class="col s4">
-                                                    <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
-                                                        <i class="mdi-content-send right"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="col s4">
-                                                    <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
-                                                </div>
-                                            </div>
-
-
-
-
-                                        </form>
-
-
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div id="test4" class="col s12 animated fadeInUp">
-
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
-                                <div class="collapsible-body grey lighten-3">
-                                    <p>Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
-                                <div class="collapsible-body grey lighten-3">
-                                    <p>Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
+                </ul>
             </div>
-            <script type="text/javascript" src="js/materialize.js"></script>
-            <!--script type="text/javascript" src="js/Chart.js"></script-->
-            <script>
-                $(document).ready(function () {
-                    $('.collapsible').collapsible();
-                    $('ul.tabs').tabs();
 
-                    $('select').material_select();
-                });
-            </script>
+            <div id="test4" class="col s12 animated fadeInUp">
+
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <!--script type="text/javascript" src="js/Chart.js"></script-->
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $('ul.tabs').tabs();
+
+            $('select').material_select();
+        });
+    </script>
 
 
 </body>

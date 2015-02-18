@@ -16,6 +16,10 @@ $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 if($result)
     echo 1;
 
+$query = "INSERT INTO `account` (`user`, `amount`)
+VALUES ('$contact', '0');";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
   //  $contact1=$_SESSION['contact'];
   //  $system=$_SESSION['system'];
   //  $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)

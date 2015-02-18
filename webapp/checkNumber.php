@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $params = json_decode(file_get_contents('php://input'));
 
@@ -14,5 +14,6 @@ $num_row = mysqli_num_rows($result);
 $row=mysqli_fetch_array($result);
 
 echo $row['count'];
+
 
 ?>

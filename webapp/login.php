@@ -39,6 +39,12 @@ $num_row = mysqli_num_rows($result);
 		else{
 			echo 'false';
 		}
+
+
+		$query="UPDATE `systems` SET `loggedIn` = '1' WHERE `number` = '3';";
+		$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+		
+
 $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
 VALUES (now(), '$username', 'LoggedIn', '$system');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));

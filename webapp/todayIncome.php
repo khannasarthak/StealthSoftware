@@ -10,7 +10,7 @@ $row=mysqli_fetch_array($result);
             if($row['sum']==NULL)
             echo 0.0;
             else
-			 echo $row['sum']; 
+			 echo $row['sum'];
 		}
 		else{
 			echo 'false';

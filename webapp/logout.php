@@ -90,6 +90,9 @@ $amount=$units*$amt;
 $query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`) VALUES (curdate(), '$contact', ' $amount', '$units');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
+$query="UPDATE `systems` SET `loggedIn` = '0' WHERE `number` = '3';";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+
 $query="SELECT `amount` FROM `account` WHERE `user`='$contact';";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 

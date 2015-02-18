@@ -16,4 +16,10 @@ VALUES ('$code', '$cost', '$cycle', '$period');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 if($result)
     echo 1;
+
+  //  $contact=$_SESSION['contact'];
+  //  $system=$_SESSION['system'];
+  //  $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
+  //  VALUES (date(now()), '$contact', 'created pricing code $code', '$system');";
+  //  $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 ?>

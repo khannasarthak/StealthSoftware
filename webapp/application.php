@@ -321,7 +321,7 @@
                                                 <label for="price">Cost</label>
                                             </div>
                                             <div class="col s6">
-											
+
                                                 <select ng-model="cycle">
                                                     <option value="" disabled selected>Choose cycle</option>
                                                     <option value="hour">Hourly</option>
@@ -347,7 +347,7 @@
                                         </div>
                                     </div>
                                 </form>
-								
+
                             </div>
                         </div>
                     </li>

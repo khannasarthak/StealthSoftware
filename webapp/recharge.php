@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $params = json_decode(file_get_contents('php://input'));
 
@@ -16,4 +16,10 @@ if($result)
 
 else
     echo 0;
+
+  //  $contact1=$_SESSION['contact'];
+  //  $system=$_SESSION['system'];
+  //  $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
+  //  VALUES (date(now()), '$contact1', 'recharge :'$contact' amount : '$amount', '$system');";
+  //  $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 ?>

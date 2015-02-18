@@ -4,16 +4,16 @@ html {
 #topbarmid{
     position: relative;
     background-color: white;
-    
+
     font-size: 30px;
     text-align: center;
     margin-top: 4%;
-    
+
 }
 #topbarleft{
     position: relative;
     background-color: white;
-    
+
     font-size: 30px;
     text-align: center;
     margin-top: 4%;
@@ -21,7 +21,7 @@ html {
 #topbarright{
     position: relative;
     background-color: white;
-    
+
     font-size: 30px;
     text-align: center;
     margin-top: 4%;

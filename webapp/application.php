@@ -273,10 +273,10 @@
             </div>
 
             <div id="test2" class="col s12 animated fadeInUp">
-                <ul class="collapsible" data-collapsible="accordion">
+                <ul class="collapsible" data-collapsible="accordion" ng-controller="pricingTable">
                     <li>
                         <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Pricing Models</div>
-                        <div class="collapsible-body grey lighten-3" ng-controller="pricingTable">
+                        <div class="collapsible-body grey lighten-3">
                             <div class="row">
                                 <table class="hoverable centered">
                                     <thead>
@@ -286,6 +286,7 @@
                                             <th data-field="price">Price</th>
                                             <th data-field="cycle">Cycle</th>
                                             <th data-field="period">Period</th>
+											<th></th>
                                         </tr>
                                     </thead>
 
@@ -296,40 +297,58 @@
                                             <td>&#8377;{{single.amount}}</td>
                                             <td>{{single.cycle}}</td>
                                             <td>{{single.timevalue}}</td>
+											<td><a class="waves-effect waves-light btn" ng-click="removeRow(single)"><i class="mdi-content-clear"></i></a></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="row">
-                                <div class="col s3">
-                                    <i class="mdi-editor-attach-money prefix"></i>
-                                    <input id="price" type="text">
-                                    <label for="price">Cost</label>
-                                </div>
-                                <div class="col s3">
-                                    <select>
-                                        <option value="" disabled selected>Choose cycle</option>
-                                        <option value="hour">Hourly</option>
-                                        <option value="day">Daily</option>
-                                        <option value="week">Weekly</option>
-                                        <option value="month">Monthly</option>
-                                        <option value="year">Yearly</option>
-                                    </select>
-                                </div>
-                                <div class="col s3">
-                                    <i class="mdi-device-access-time prefix"></i>
-                                    <input id="period" type="text">
-                                    <label for="period">Period</label>
-                                </div>
-                                <div class="col s3">
-                                    <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>ADD</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <a class="btn-floating btn-large waves-effect waves-light"><i class="mdi-navigation-refresh"></i></a>
-                            </div>
 
 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-content-add"></i>Add</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <div class="container">
+                                <form novalidate class="col s12">
+                                    <div class="row">
+
+                                        <div class="row">
+
+                                            <div class="input-field col s6">
+                                                <i class="mdi-editor-attach-money prefix"></i>
+                                                <input id="price" type="text" ng-model="cost">
+                                                <label for="price">Cost</label>
+                                            </div>
+                                            <div class="col s6">
+											
+                                                <select ng-model="cycle">
+                                                    <option value="" disabled selected>Choose cycle</option>
+                                                    <option value="hour">Hourly</option>
+                                                    <option value="day">Daily</option>
+                                                    <option value="week">Weekly</option>
+                                                    <option value="month">Monthly</option>
+                                                    <option value="year">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="mdi-device-access-time prefix"></i>
+                                                <input id="period" type="text" ng-model="period">
+                                                <label for="period">Period</label>
+                                            </div>
+                                            <div class="col s3">
+                                                <a class="waves-effect waves-light btn" ng-click="putPricing()"><i class="mdi-content-add left"></i>ADD</a>
+                                            </div>
+											<div class="col s3">
+                                                <a class="waves-effect waves-light btn"><i class="mdi-content-clear left"></i>CLEAR</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+								
+                            </div>
                         </div>
                     </li>
                 </ul>

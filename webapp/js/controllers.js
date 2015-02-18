@@ -268,6 +268,51 @@ stealthApp.controller('pricingTable',
 
 
         }
+
+        $scope.removeRow=function(pricings){
+          console.log(pricings);
+          $http.post('deletePricing.php', {
+              "code": pricings.code
+          }).
+          success(function (data, status, headers, config) {
+              if (data > 0) {
+                  toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Pricing plan deleted successfully</span>', 4000);
+
+                  $scope.getPricing();
+              } else {
+                  toast('POST failed', 4000);
+              }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+
+
+        $scope.putPricing=function(){
+
+          $http.post('newPricing.php', {
+              "cost": $scope.cost,
+              "cycle": $scope.cycle,
+              "period":$scope.period
+          }).
+          success(function (data, status, headers, config) {
+              if (data > 0) {
+                  toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Pricing plan made successfully</span>', 4000);
+
+                  $scope.getPricing();
+              } else {
+                  toast('POST failed', 4000);
+              }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+        }
     $scope.getPricing();
 
     });

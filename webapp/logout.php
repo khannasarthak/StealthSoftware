@@ -87,10 +87,7 @@ $amount=$units*$amt;
 
 
 
-$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`) VALUES (curdate(), '$contact', ' $amount', '$units');";
-$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
-
-$query="UPDATE `systems` SET `loggedIn` = '0' WHERE `number` = '3';";
+$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`, `pricingCode`) VALUES (curdate(), '$contact', ' $amount', '$units', (SELECT `plan` FROM `pricingplan` WHERE `user` = '$contact'));";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="SELECT `amount` FROM `account` WHERE `user`='$contact';";
@@ -109,5 +106,6 @@ $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
 VALUES (date(now()), '$contact', 'billed $amount', '$system');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
-
+session_unset();
+session_destroy();
 ?>

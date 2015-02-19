@@ -316,3 +316,25 @@ stealthApp.controller('pricingTable',
     $scope.getPricing();
 
     });
+
+stealthApp.controller('billsTable',
+    function ($scope, $http, $interval) {
+
+    $scope.bills={};
+
+        $scope.getBills=function() {
+
+            $http.post('billing.php', {
+                "number": $scope.number
+            }).
+            success(function (data, status, headers, config) {
+                $scope.bills = angular.fromJson(data);
+            }).
+            error(function (data, status, headers, config) {
+                $scope.bills = 'ERROR';
+            });
+        }
+        
+        
+
+    });

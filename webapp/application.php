@@ -449,23 +449,20 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-shopping-cart"></i>Bills</div>
                         <div class="collapsible-body grey lighten-3">
-                            <div class="container">
+                            <div class="container" ng-controller="billsTable">
 
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s4">
                                             <i class="mdi-communication-phone prefix"></i>
-                                            <input id="username" type="text">
+                                            <input id="username" type="text" ng-model="number">
                                             <label for="username">Contact</label>
                                         </div>
 
                                         <div class="col s4">
-                                            <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                            <button class="btn waves-effect waves-light" type="submit" id="submit" value="Submit" ng-click="getBills()">SUBMIT
                                                 <i class="mdi-content-send right"></i>
                                             </button>
-                                        </div>
-                                        <div class="col s4">
-                                            <a class="waves-effect waves-light btn">CLEAR<i class="mdi-content-clear right"></i></a>
                                         </div>
                                     </div>
 
@@ -473,6 +470,39 @@
 
 
                                 </form>
+                                
+                                <div class="container">
+                                        <div class="row">
+                                            <div class="col s12 card">
+
+                                <div class="row">               
+                                <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th data-field="id">Date</th>
+                                            <th data-field="price">Unit(s)</th>
+                                            <th data-field="cycle">Amount</th>
+                                            <th>Plan</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="bill in bills">
+                                            
+                                            <td>{{bill.time}}</td>
+                                            <td>{{bill.billedUnits}}{{timeUnit}}</td>
+                                            <td>&#8377;{{bill.amount}}</td>
+                                            <td>{{bill.pricingCode}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
 
 
                             </div>
@@ -485,19 +515,28 @@
             <div id="test4" class="col s12 animated fadeInUp">
 
                 <ul class="collapsible" data-collapsible="accordion">
+                    
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-social-group"></i>Users online</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
                     <li>
                         <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
                         <div class="collapsible-body grey lighten-3">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Coming Soon.</p>
                         </div>
                     </li>
 
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
                         <div class="collapsible-body grey lighten-3">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Coming Soon.</p>
                         </div>
                     </li>
+                    
+                     
 
                 </ul>
             </div>

@@ -11,10 +11,17 @@
 
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
-
+    
 
 
     <script src="js/angular.min.js"></script>
+    <script type="text/javascript">
+        var stealthApp = angular.module('stealth', []);
+        stealthApp.run(function($rootScope){
+        $rootScope.localContact='<?php echo $_SESSION["contact"]; ?>';
+            
+        });
+    </script>
     <script src="js/controllers.js"></script>
 
 
@@ -517,20 +524,44 @@
                 <ul class="collapsible" data-collapsible="accordion">
                     
                     <li>
-                        <div class="collapsible-header"><i class="mdi-social-group"></i>Users online</div>
-                        <div class="collapsible-body grey lighten-3">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                        <div class="collapsible-header"><i class="mdi-social-group"></i>Users</div>
+                        <div class="collapsible-body grey lighten-3" ng-controller="usersOnlineTable">
+                            <div class="row">
+                            <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th data-field="id">Name</th>
+                                            <th data-field="price">Contact</th>
+                                            <th data-field="cycle">System</th>
+                                            <th data-field="period">Sys No</th>
+											<th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="users in onlineUsers">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{users.uname}}</td>
+                                            <td>{{users.user}}</td>
+                                            <td>{{users.group}}</td>
+                                            <td>{{users.sysNo}}</td>
+											<td ng-if="users.user!=contact"><a class="waves-effect waves-light btn" ng-click="removeRow(users)"><i class="mdi-content-clear"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Earnings</div>
+                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>Accountancy</div>
                         <div class="collapsible-body grey lighten-3">
                             <p>Coming Soon.</p>
                         </div>
                     </li>
 
                     <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Pricing Plans Popularity</div>
+                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Food and drinks</div>
                         <div class="collapsible-body grey lighten-3">
                             <p>Coming Soon.</p>
                         </div>

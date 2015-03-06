@@ -39,6 +39,16 @@
 
                           window.location.href = "user.php";
                         }
+                        else if(html == 3){
+
+                          $("#loginCard").shake();
+                            $("#error").html("<span style='color:#cc0000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error:</span> All systems full ");
+                        }
+                        else if(html == 4){
+
+                          $("#loginCard").shake();
+                            $("#error").html("<span style='color:#cc0000'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error:</span> User already logged in ");
+                        }
                          else {
                             //Shake animation effect.
                             $("#loginCard").shake();

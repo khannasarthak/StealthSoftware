@@ -1,4 +1,4 @@
-var stealthApp = angular.module('stealth', []);
+
 
 stealthApp.controller('status',
     function ($scope, $http, $interval) {
@@ -337,4 +337,48 @@ stealthApp.controller('billsTable',
         
         
 
+    });
+
+stealthApp.controller('usersOnlineTable',
+    function ($scope, $http, $interval, $rootScope) {
+
+    $scope.onlineUsers={};
+    
+    $scope.contact=$rootScope.localContact;
+    
+
+        $scope.getUsers=function() {
+
+            $http.get('loggedOnList.php').
+            success(function (data, status, headers, config) {
+                $scope.onlineUsers = angular.fromJson(data);
+            }).
+            error(function (data, status, headers, config) {
+                $scope.onlineUsers = 'ERROR';
+            });
+        }
+        
+        $scope.removeRow=function(users){
+          console.log(users);
+            
+          $http.post('logoutUser.php', {
+              "contact": users.user,
+              "number": users.number
+          }).
+          success(function (data, status, headers, config) {
+              
+                  toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User logged out successfully</span>', 4000);
+
+                  $scope.getUsers();
+              
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+    $interval($scope.getUsers(), 15000);
+    $scope.getUsers();
     });

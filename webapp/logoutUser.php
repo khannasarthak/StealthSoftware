@@ -13,7 +13,7 @@ $query="UPDATE `systems` SET `loggedIn` = '0' WHERE `number` = '$system';";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
 VALUES (now(), '$contact', 'LoggedOut', '$system');";
-header('Location: index.php');
+//header('Location: index.php');
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="SELECT `time` FROM `log` WHERE `user` = '$contact' AND `action` = 'LoggedOut' ORDER BY `sno` DESC LIMIT 1";

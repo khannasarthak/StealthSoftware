@@ -1,4 +1,9 @@
-<?php session_start(); if(empty($_SESSION[ 'user_name'])) {echo "inside if"; echo $_SESSION[ 'user_name']; header( 'Location: index.php'); } ?>
+<?php session_start(); if(empty($_SESSION[ 'user_name'])) {echo "inside if"; echo $_SESSION[ 'user_name']; header( 'Location: index.php');}
+if($_SESSION['level']!='2'){
+session_destroy();
+    header('Location: index.php');
+}
+?>
 
 <!DOCTYPE html>
 <html ng-app="stealth">
@@ -11,15 +16,15 @@
 
     <!--<script type="text/javascript" src="js/init.js"></script>-->
     <script src="js/jquery.min.js"></script>
-    
+
 
 
     <script src="js/angular.min.js"></script>
     <script type="text/javascript">
         var stealthApp = angular.module('stealth', []);
-        stealthApp.run(function($rootScope){
-        $rootScope.localContact='<?php echo $_SESSION["contact"]; ?>';
-            
+        stealthApp.run(function ($rootScope) {
+            $rootScope.localContact = '<?php echo $_SESSION["contact"]; ?>';
+
         });
     </script>
     <script src="js/controllers.js"></script>
@@ -293,7 +298,7 @@
                                             <th data-field="price">Price</th>
                                             <th data-field="cycle">Cycle</th>
                                             <th data-field="period">Period</th>
-											<th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
 
@@ -304,7 +309,8 @@
                                             <td>&#8377;{{single.amount}}</td>
                                             <td>{{single.cycle}}</td>
                                             <td>{{single.timevalue}}</td>
-											<td><a class="waves-effect waves-light btn" ng-click="removeRow(single)"><i class="mdi-content-clear"></i></a></td>
+                                            <td><a class="waves-effect waves-light btn" ng-click="removeRow(single)"><i class="mdi-content-clear"></i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -348,7 +354,7 @@
                                             <div class="col s3">
                                                 <a class="waves-effect waves-light btn" ng-click="putPricing()"><i class="mdi-content-add left"></i>ADD</a>
                                             </div>
-											<div class="col s3">
+                                            <div class="col s3">
                                                 <a class="waves-effect waves-light btn"><i class="mdi-content-clear left"></i>CLEAR</a>
                                             </div>
                                         </div>
@@ -477,39 +483,39 @@
 
 
                                 </form>
-                                
+
                                 <div class="container">
-                                        <div class="row">
-                                            <div class="col s12 card">
+                                    <div class="row">
+                                        <div class="col s12 card">
 
-                                <div class="row">               
-                                <table class="hoverable centered">
-                                    <thead>
-                                        <tr>
-                                            
-                                            <th data-field="id">Date</th>
-                                            <th data-field="price">Unit(s)</th>
-                                            <th data-field="cycle">Amount</th>
-                                            <th>Plan</th>
-                                        </tr>
-                                    </thead>
+                                            <div class="row">
+                                                <table class="hoverable centered">
+                                                    <thead>
+                                                        <tr>
 
-                                    <tbody>
-                                        <tr ng-repeat="bill in bills">
-                                            
-                                            <td>{{bill.time}}</td>
-                                            <td>{{bill.billedUnits}}{{timeUnit}}</td>
-                                            <td>&#8377;{{bill.amount}}</td>
-                                            <td>{{bill.pricingCode}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            
-                                                </div>
+                                                            <th data-field="id">Date</th>
+                                                            <th data-field="price">Unit(s)</th>
+                                                            <th data-field="cycle">Amount</th>
+                                                            <th>Plan</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr ng-repeat="bill in bills">
+
+                                                            <td>{{bill.time}}</td>
+                                                            <td>{{bill.billedUnits}}{{timeUnit}}</td>
+                                                            <td>&#8377;{{bill.amount}}</td>
+                                                            <td>{{bill.pricingCode}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
                                             </div>
-
                                         </div>
+
                                     </div>
+                                </div>
 
 
                             </div>
@@ -522,12 +528,12 @@
             <div id="test4" class="col s12 animated fadeInUp">
 
                 <ul class="collapsible" data-collapsible="accordion">
-                    
+
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-group"></i>Users</div>
                         <div class="collapsible-body grey lighten-3" ng-controller="usersOnlineTable">
                             <div class="row">
-                            <table class="hoverable centered">
+                                <table class="hoverable centered">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -535,7 +541,7 @@
                                             <th data-field="price">Contact</th>
                                             <th data-field="cycle">System</th>
                                             <th data-field="period">Sys No</th>
-											<th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
 
@@ -546,7 +552,8 @@
                                             <td>{{users.user}}</td>
                                             <td>{{users.group}}</td>
                                             <td>{{users.sysNo}}</td>
-											<td ng-if="users.user!=contact"><a class="waves-effect waves-light btn" ng-click="removeRow(users)"><i class="mdi-content-clear"></i></a></td>
+                                            <td ng-if="users.user!=contact"><a class="waves-effect waves-light btn" ng-click="removeRow(users)"><i class="mdi-content-clear"></i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -566,8 +573,8 @@
                             <p>Coming Soon.</p>
                         </div>
                     </li>
-                    
-                     
+
+
 
                 </ul>
             </div>

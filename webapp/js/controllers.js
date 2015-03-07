@@ -6,6 +6,7 @@ stealthApp.controller('status',
         obj.income = 0;
         obj.online = 0;
         obj.unique = 0;
+        obj.cash=0;
 
         function xhr() {
             $http.get('peopleOnline.php').
@@ -34,11 +35,21 @@ stealthApp.controller('status',
                 obj.unique = 'ERROR';
             });
         }
+    
+        function cash() {
+            $http.get('cashInDrawer.php').success(function (data, status, headers, config) {
+                obj.cash = data;
+
+            }).error(function (data, status, headers, config) {
+                obj.cash = 'ERROR';
+            });
+        }
 
 
         $interval(xhr, 5000);
         $interval(income, 5001);
         $interval(unique, 5002);
+        $interval(cash, 5003);
         $scope.obj = obj;
 
 
@@ -366,10 +377,15 @@ stealthApp.controller('usersOnlineTable',
               "number": users.number
           }).
           success(function (data, status, headers, config) {
-              
+              if(data>0){
                   toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User logged out successfully</span>', 4000);
 
+                  $scope.getUsers();}
+              else{
+              toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>User log out failed</span>', 4000);
+
                   $scope.getUsers();
+              }
               
           }).
           error(function (data, status, headers, config) {
@@ -379,6 +395,71 @@ stealthApp.controller('usersOnlineTable',
 
         }
 
-    $interval($scope.getUsers(), 15000);
+    $interval($scope.getUsers, 8000);
     $scope.getUsers();
+    });
+
+stealthApp.controller('products',
+    function ($scope, $http, $interval) {
+
+    $scope.products={};
+
+        $scope.getProduct=function() {
+
+            $http.get('getProduct.php').
+            success(function (data, status, headers, config) {
+                $scope.products = angular.fromJson(data);
+            }).
+            error(function (data, status, headers, config) {
+                $scope.products = 'ERROR';
+            });
+
+
+        }
+
+        $scope.removeRow=function(product){
+          
+          $http.post('deleteProduct.php', {
+              "name": product.name
+          }).
+          success(function (data, status, headers, config) {
+              if (data > 0) {
+                  toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Product deleted successfully</span>', 4000);
+
+                  $scope.getProduct();
+              } else {
+                  toast('POST failed', 4000);
+              }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+
+
+        $scope.putProduct=function(){
+
+          $http.post('addProduct.php', {
+              "name": $scope.name,
+              "price": $scope.price
+          }).
+          success(function (data, status, headers, config) {
+              if (data > 0) {
+                  toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Product added successfully</span>', 4000);
+
+                  $scope.getProduct();
+              } else {
+                  toast('POST failed', 4000);
+              }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+        }
+    $scope.getProduct();
+
     });

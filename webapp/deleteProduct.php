@@ -3,12 +3,12 @@ session_start();
 $params = json_decode(file_get_contents('php://input'));
 
 
-$code=$params->code;
+$name=$params->name;
 
 
 $mysqli=mysqli_connect('localhost','root','password','stealth');
-$query = "DELETE FROM `pricingmodels`
-WHERE (`code` = '$code');";
+$query = "DELETE FROM `products`
+WHERE (`name` = '$name');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 if($result)
     echo 1;
@@ -16,6 +16,6 @@ if($result)
   $contact=$_SESSION['contact'];
   $system=$_SESSION['system'];
    $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
-  VALUES (date(now()), '$contact', 'delete pricing code $code', '$system');";
+  VALUES (date(now()), '$contact', 'delete product $name', '$system');";
   $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 ?>

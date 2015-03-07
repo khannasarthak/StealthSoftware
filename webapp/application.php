@@ -75,7 +75,7 @@ session_destroy();
                     <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Todays Total Income</p>
+                                <p>Todays Net Income</p>
                                 <span class="card-title">&#8377;{{obj.income}}</span>
 
                             </div>
@@ -107,8 +107,8 @@ session_destroy();
                     <div class="col s6 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Users Online</p>
-                                <span class="card-title"></span>
+                                <p>Cash</p>
+                                <span class="card-title">&#8377;{{obj.cash}}</span>
 
                             </div>
 
@@ -568,9 +568,48 @@ session_destroy();
                     </li>
 
                     <li>
-                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Food and drinks</div>
-                        <div class="collapsible-body grey lighten-3">
-                            <p>Coming Soon.</p>
+                        <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Products</div>
+                        <div class="collapsible-body grey lighten-3" ng-controller="products">
+                            <div class="row">
+                                <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th data-field="id">Product</th>
+                                            <th data-field="price">Price</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="product in products">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{product.name}}</td>
+                                            <td>{{product.price}}</td>
+                                            <td><a class="waves-effect waves-light btn" ng-click="removeRow(product)"><i class="mdi-content-clear"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                            
+                                <form class="col s12">
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="mdi-action-view-carousel prefix"></i>
+        <input id="icon_prefix" type="text" class="validate" ng-model="name">
+        <label for="icon_prefix">Product name</label>
+      </div>
+      <div class="input-field col s4">
+        <i class="mdi-editor-attach-money prefix"></i>
+        <input id="icon_telephone" type="tel" class="validate" ng-model="price">
+        <label for="icon_telephone">Price</label>
+      </div>
+        <div class="col s4"><a class="waves-effect waves-light btn" ng-click="putProduct()"><i class="mdi-content-add left"></i>ADD</a></div>
+    </div>
+  </form>
+                            </div>
                         </div>
                     </li>
 

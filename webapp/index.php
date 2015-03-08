@@ -1,4 +1,11 @@
-<?php session_start(); if(!empty($_SESSION[ 'user_name'])) {echo $_SESSION[ 'user_name']; header( 'Location: application.php'); } ?>
+<?php session_start();
+    if(!empty($_SESSION['level']))
+    {if($_SESSION['level']==2)
+    {header( 'Location: application.php'); }
+    if($_SESSION['level']==1){
+    header('Location:user.php');
+    }
+    }?>
 
 <!DOCTYPE html>
 <html>

@@ -1,8 +1,7 @@
-<?php session_start(); if(empty($_SESSION[ 'user_name'])) {echo "inside if"; echo $_SESSION[ 'user_name']; header( 'Location: index.php');}
-if($_SESSION['level']!='2'){
-session_destroy();
-    header('Location: index.php');
-}
+<?php session_start();
+ if(empty($_SESSION['level'])||$_SESSION['level']!=2)
+    {header( 'Location: index.php'); }
+ 
 ?>
 
 <!DOCTYPE html>

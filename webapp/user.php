@@ -1,4 +1,6 @@
-<?php session_start(); if(empty($_SESSION[ 'user_name'])) {echo "inside if"; echo $_SESSION[ 'user_name']; header( 'Location: index.php'); } ?>
+<?php session_start(); 
+if(empty($_SESSION['level'])||$_SESSION['level']!=1)
+    {header( 'Location: index.php'); }?>
 
 <!DOCTYPE html>
 <html>

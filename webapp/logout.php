@@ -3,6 +3,7 @@ session_start();
 unset($_SESSION['user_name']);
 $contact=$_SESSION['contact'];
 $system=$_SESSION['system'];
+
 $mysqli=mysqli_connect('localhost','root','password','stealth');
 $query="DELETE FROM `loggedon` WHERE `user` = '$contact';";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
@@ -11,7 +12,7 @@ $query="UPDATE `systems` SET `loggedIn` = '0' WHERE `number` = '$system';";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $query="INSERT INTO `log` (`time`, `user`, `action`, `system`)
 VALUES (now(), '$contact', 'LoggedOut', '$system');";
-header('Location: index.php');
+
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="SELECT `time` FROM `log` WHERE `user` = '$contact' AND `action` = 'LoggedOut' ORDER BY `sno` DESC LIMIT 1";
@@ -108,4 +109,5 @@ VALUES (date(now()), '$contact', 'billed $amount', '$system');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 session_unset();
 session_destroy();
+header('Location: index.php');
 ?>

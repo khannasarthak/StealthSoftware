@@ -43,8 +43,21 @@
                         }
 
                         else if(html == 1){
-
-                          window.location.href = "user.php";
+                         $.ajax({
+                         type: "POST",
+                             url: "pricingThere.php",
+                             data: "number=" + username,
+                             
+                             success: function(data){
+                             if(data==0){
+                             window.location.href = "selectPricing.php";
+                             }
+                                 else{
+                                 window.location.href = "user.php";
+                                 }
+                             }
+                         });
+                          
                         }
                         else if(html == 3){
 

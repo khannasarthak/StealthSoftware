@@ -263,9 +263,10 @@ stealthApp.controller('refund',
     });
 
 stealthApp.controller('pricingTable',
-    function ($scope, $http, $interval) {
+    function ($scope, $http, $interval,$rootScope) {
 
     $scope.pricings={};
+    $scope.balance=0.0;
 
         $scope.getPricing=function() {
 
@@ -277,6 +278,41 @@ stealthApp.controller('pricingTable',
                 $scope.pricings = 'ERROR';
             });
 
+
+        }
+        
+        $scope.getBalance=function(){
+          console.log(pricings);
+          $http.post('accBalance.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.balance=data;
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+        
+        $scope.select=function(pricings,option){
+          $http.post('putPricing.php', {
+              "code": pricings.code,
+              "number": $rootScope.localContact,
+              "option":option
+          }).
+          success(function (data, status, headers, config) {
+          
+              if(data==1){
+              window.location.href="user.php"
+              }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
 
         }
 

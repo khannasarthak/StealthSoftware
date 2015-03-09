@@ -1,8 +1,8 @@
 <?php session_start();
-    //if(empty($_SESSION['level']))
-    //{
-    //    header('Location:index.php');
-    //}
+    if(empty($_SESSION['level']))
+    {
+        header('Location:index.php');
+    }
     ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,10 @@
     <script src="js/angular.min.js"></script>
     <script type="text/javascript">
         var stealthApp = angular.module('stealth', []);
-       // stealthApp.run(function ($rootScope) {
-    //        $rootScope.localContact = '<?//php echo $_SESSION["contact"]; ?>';
+     stealthApp.run(function ($rootScope) {
+     $rootScope.localContact = '<?php echo $_SESSION["contact"]; ?>';
 
-        //});
+    });
     </script>
     <script src="js/controllers.js"></script>
 
@@ -59,7 +59,7 @@
                                             <td>&#8377;{{single.amount}}</td>
                                             <td>{{single.cycle}}</td>
                                             <td>{{single.timevalue}}</td>
-                                            <td><a class="waves-effect waves-light btn" ng-click="select(single)"><i class="mdi-action-done white-text"></i></a>
+                                            <td><a class="waves-effect waves-light btn" ng-click="select(single,1)"><i class="mdi-action-done white-text"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

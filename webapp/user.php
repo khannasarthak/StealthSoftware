@@ -1,76 +1,30 @@
-<?php session_start(); 
-if(empty($_SESSION['level'])||$_SESSION['level']!=1)
-    {header( 'Location: index.php'); }?>
+<?php session_start(); if(empty($_SESSION[ 'level'])||$_SESSION[ 'level']!=1) {header( 'Location: index.php'); }?>
 
 <!DOCTYPE html>
-<html>
+<html ng-app="stealth">
 
 <head>
     <link type="text/css" rel=stylesheet href="css/materialize.css" media="screen,projection">
     <link type="text/css" rel="stylesheet" href="css/animate.css">
-    <link type="text/css" rel="stylesheet" href="css/userstyle.css">
+    <link type="text/css" rel="stylesheet" href="css/styleadmin.css">
 
-    <!--<script type="text/javascript" src="js/init.js"></script>-->
+
     <script src="js/jquery.min.js"></script>
-    <script src="chart/Chart.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-            $('ul.tabs').tabs();
-        });
-        $(document).ready(function () {
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal-trigger').leanModal();
+
+
+
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript">
+        var stealthApp = angular.module('stealth', []);
+        stealthApp.run(function ($rootScope) {
+            $rootScope.localContact = '<?php echo $_SESSION["contact"]; ?>';
 
         });
-
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-            $('ul.tabs').tabs();
-            $('.modal-trigger').leanModal();
-            $('select').material_select();
-        });
-
-        var randomScalingFactor = function () {
-            return Math.round(Math.random() * 100)
-        };
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-    },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
-    }
-   ]
-
-        }
-
-        window.onload = function () {
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myLine = new Chart(ctx).Line(lineChartData, {
-                responsive: true
-            });
-        }
     </script>
+    <script src="js/controllers.js"></script>
 
 
-    <title>Stealth Gaming Lounge : Admin</title>
+    <title>Stealth Gaming Lounge : User</title>
 </head>
 
 <body class="blue">
@@ -89,15 +43,15 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
                 </div>
             </nav>
         </div>
-        <div class="row" id="displaycards">
+        <div class="row" id="displaycards" ng-controller="userCards">
 
             <div class="col s3"><span class="flow-text"></span>
                 <div class="row">
                     <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Amount Left:</p>
-                                <span class="card-title">64</span>
+                                <p>Balance</p>
+                                <span class="card-title">&#8377;{{balance}}</span>
 
                             </div>
 
@@ -111,8 +65,8 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
                     <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Hours Left</p>
-                                <span class="card-title">6:03</span>
+                                <p>Plan</p>
+                                <span class="card-title">{{plan}}</span>
 
                             </div>
 
@@ -127,8 +81,8 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
                     <div class="col s3 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Total Hours Played:</p>
-                                <span class="card-title">176:06</span>
+                                <p>Total Hours</p>
+                                <span class="card-title">{{hours}}</span>
 
                             </div>
 
@@ -143,8 +97,8 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
                     <div class="col s6 m12">
                         <div class="card blue-grey darken-1">
                             <div class="card-content white-text">
-                                <p>Last Top Up Done On</p>
-                                <span class="card-title">7</span>
+                                <p>Last recharge</p>
+                                <span class="card-title">{{lastRecharge}}</span>
 
                             </div>
 
@@ -160,16 +114,16 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="#test1">Accounts</a>
+                    <li class="tab col s3"><a href="#test1">Account</a>
                     </li>
                     <li class="tab col s3">
                         <a href="#test2">
-                            </i>User Log</a>
+                            LOG</a>
 
                     </li>
                     <li class="tab col s3"><a href="#test3">Billing</a>
                     </li>
-                    <li class="tab col s3"><a href="#test4">Analytics</a>
+                    <li class="tab col s3"><a href="#test4">Order</a>
                     </li>
 
 
@@ -179,6 +133,7 @@ if(empty($_SESSION['level'])||$_SESSION['level']!=1)
         <div class="row">
             <div id="test1" class="col s12 animated fadeInUp">
                 <ul class="collapsible" data-collapsible="accordion">
+                    <li>
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-verified-user"></i>Change Password</div>
                         <div class="collapsible-body grey lighten-3">

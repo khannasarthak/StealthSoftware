@@ -1,8 +1,4 @@
-<?php session_start();
- if(empty($_SESSION['level'])||$_SESSION['level']!=2)
-    {header( 'Location: index.php'); }
- 
-?>
+<?php session_start(); if(empty($_SESSION[ 'level'])||$_SESSION[ 'level']!=2) {header( 'Location: index.php'); } ?>
 
 <!DOCTYPE html>
 <html ng-app="stealth">
@@ -592,22 +588,23 @@
                                 </table>
                             </div>
                             <div class="row">
-                            
+
                                 <form class="col s12">
-    <div class="row">
-      <div class="input-field col s4">
-        <i class="mdi-action-view-carousel prefix"></i>
-        <input id="icon_prefix" type="text" class="validate" ng-model="name">
-        <label for="icon_prefix">Product name</label>
-      </div>
-      <div class="input-field col s4">
-        <i class="mdi-editor-attach-money prefix"></i>
-        <input id="icon_telephone" type="tel" class="validate" ng-model="price">
-        <label for="icon_telephone">Price</label>
-      </div>
-        <div class="col s4"><a class="waves-effect waves-light btn" ng-click="putProduct()"><i class="mdi-content-add left"></i>ADD</a></div>
-    </div>
-  </form>
+                                    <div class="row">
+                                        <div class="input-field col s4">
+                                            <i class="mdi-action-view-carousel prefix"></i>
+                                            <input id="icon_prefix" type="text" class="validate" ng-model="name">
+                                            <label for="icon_prefix">Product name</label>
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <i class="mdi-editor-attach-money prefix"></i>
+                                            <input id="icon_telephone" type="tel" class="validate" ng-model="price">
+                                            <label for="icon_telephone">Price</label>
+                                        </div>
+                                        <div class="col s4"><a class="waves-effect waves-light btn" ng-click="putProduct()"><i class="mdi-content-add left"></i>ADD</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </li>

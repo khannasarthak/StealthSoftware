@@ -499,3 +499,75 @@ stealthApp.controller('products',
     $scope.getProduct();
 
     });
+
+stealthApp.controller('userCards',
+    function ($scope, $http, $interval, $rootScope) {
+
+        $scope.getBalance=function(){
+          $http.post('accBalance.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.balance=data;
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+        
+        $scope.getPlan=function(){
+          $http.post('pricingPlan.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.plan=data;
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+        $scope.getHoursPlayed=function(){
+          $http.post('getHours.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.hours=data;
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+        $scope.getLastRecharge=function(){
+          $http.post('getLastRecharge.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.lastRecharge=data;
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+
+
+        $interval($scope.getBalance, 10000);
+        $interval($scope.getPlan, 10001);
+        $interval($scope.getHoursPlayed, 10002);
+        $interval($scope.getLastRecharge, 10003);
+
+
+    });

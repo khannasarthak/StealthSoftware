@@ -37,6 +37,7 @@ $num_row = mysqli_num_rows($result);
 
 
 $timeDiff=$logoutTime-$loginTime;
+$hours=$timeDiff/3600;
 
 
 
@@ -88,7 +89,7 @@ $amount=$units*$amt;
 
 
 
-$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`, `pricingCode`) VALUES (curdate(), '$contact', ' $amount', '$units', (SELECT `plan` FROM `pricingplan` WHERE `user` = '$contact'));";
+$query="INSERT INTO `bills` (`time`, `user`, `amount`, `billedUnits`, `pricingCode`, `hours`) VALUES (curdate(), '$contact', ' $amount', '$units', (SELECT `plan` FROM `pricingplan` WHERE `user` = '$contact'), '$hours');";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 
 $query="SELECT `amount` FROM `account` WHERE `user`='$contact';";

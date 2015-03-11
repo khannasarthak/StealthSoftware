@@ -131,10 +131,6 @@ stealthApp.controller('existingUser', function ($scope, $http) {
             } else {
               $scope.object=angular.fromJson(data);
 
-                console.log($scope);
-                console.log(data);
-                console.log($scope.object);
-                console.log($scope.object[0].balance);
                 toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Query Successful</span>', 4000);
             }
         }).
@@ -282,7 +278,6 @@ stealthApp.controller('pricingTable',
         }
         
         $scope.getBalance=function(){
-          console.log(pricings);
           $http.post('accBalance.php', {
               "number": $rootScope.localContact
           }).
@@ -317,7 +312,6 @@ stealthApp.controller('pricingTable',
         }
 
         $scope.removeRow=function(pricings){
-          console.log(pricings);
           $http.post('deletePricing.php', {
               "code": pricings.code
           }).
@@ -406,7 +400,6 @@ stealthApp.controller('usersOnlineTable',
         }
         
         $scope.removeRow=function(users){
-          console.log(users);
             
           $http.post('logoutUser.php', {
               "contact": users.user,
@@ -562,12 +555,70 @@ stealthApp.controller('userCards',
           });
 
         }
+        
+        $scope.billing=function(){
+        
+            $scope.getPlan();
+            $http.post('getPricing.php', {
+              "code": $scope.plan
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.planDetails=angular.fromJson(data);
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+            
+            switch($scope.planDetails[0].cycle){
+            case "month":
+    $time=2592000;
+    break;
+
+case "hour":
+    $time=3600;
+    break;
+
+case "day":
+    $time=86400;
+    break;
+
+case "week":
+    $time=604800;
+    break;
+
+case "year":
+    $time=31556926;
+    break;
+
+default: $time= "Wrong Cycle Type";
+            }
+           
+            $pulseRate=$scope.planDetails[0].amount/$time;
+            $amount=$pulseRate*12;
+            
+            $http.post('meter.php', {
+              "number": $rootScope.localContact,
+                "amount":$amount
+          }).
+          success(function (data, status, headers, config) {
+          
+              $scope.getBalance();
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+            
+        }
 
 
-        $interval($scope.getBalance, 10000);
+     //   $interval($scope.getBalance, 10000);
         $interval($scope.getPlan, 10001);
         $interval($scope.getHoursPlayed, 10002);
         $interval($scope.getLastRecharge, 10003);
+        $interval($scope.billing, 12000);
 
 
     });

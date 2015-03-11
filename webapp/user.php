@@ -121,9 +121,9 @@
                             LOG</a>
 
                     </li>
-                    <li class="tab col s3"><a href="#test3">Billing</a>
+                    <li class="tab col s3"><a href="#test3">Order</a>
                     </li>
-                    <li class="tab col s3"><a href="#test4">Order</a>
+                    <li class="tab col s3"><a href="#test4">Social</a>
                     </li>
 
 
@@ -135,7 +135,7 @@
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
                     <li>
-                        <div class="collapsible-header"><i class="mdi-action-verified-user"></i>Change Password</div>
+                        <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Change Password</div>
                         <div class="collapsible-body grey lighten-3">
 
 
@@ -149,14 +149,12 @@
 
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <i class="mdi-action-lock prefix"></i>
                                                 <input id="password" type="password" ng-model="userPwd">
                                                 <label for="password">New Password</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <i class="mdi-action-lock prefix"></i>
                                                 <input id="password" type="password" ng-model="userPwd">
                                                 <label for="password">Confirm New Password</label>
                                             </div>
@@ -188,11 +186,50 @@
             </li>
 
 
-            <div id="test2" class="col s12 fadeInUp">
+            <div id="test2" class="col s12 animated fadeInUp">
                 <ul class="collapsible">
 
                     <li>
-                        <div class="collapsible-header"><i class="mdi-action-history"></i>Your Previous Sessions</div>
+                        <div class="collapsible-header"><i class="mdi-action-history"></i>Session logs</div>
+                        <div class="collapsible-body grey lighten-3">
+                            <div class="row">
+                                <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            <th>Sno</th>
+                                            <th data-field="id">Price</th>
+                                            <th data-field="name">Cycle</th>
+                                            <th data-field="price">Period</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Alvin</td>
+                                            <td>Eclair</td>
+                                            <td>$0.87</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Alan</td>
+                                            <td>Jellybean</td>
+                                            <td>$3.76</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Jonathan</td>
+                                            <td>Lollipop</td>
+                                            <td>$7.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                    </li>
+                        
+                        <li>
+                        <div class="collapsible-header"><i class="mdi-editor-format-list-bulleted"></i>Bills</div>
                         <div class="collapsible-body grey lighten-3">
                             <div class="row">
                                 <table class="hoverable centered">
@@ -235,10 +272,10 @@
 
                 </ul>
             </div>
-            <div id="test3" class="col s12 fadeInUp">
+            <div id="test3" class="col s12 animated fadeInUp">
                 <ul class="collapsible">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-editor-attach-money"></i>See Previous Top Ups</div>
+                        <div class="collapsible-header"><i class="mdi-social-cake"></i>Food and Drinks</div>
                         <div class="collapsible-body grey lighten-3">
                             <table class="hoverable centered">
                                 <thead>
@@ -269,33 +306,32 @@
                             </table>
                         </div>
                     </li>
-                    <li>
-                        <div class="collapsible-header"><i class="mdi-av-replay"></i>Refund</div>
-                        <div class="collapsible-body grey lighten-3">
-                            <p>To obtain refund, Please contact your local Stealth Gaming administrator.</p>
-                        </div>
-                    </li>
+                    
 
 
                 </ul>
             </div>
-            <div id="test4" class="col s12 fadeInUp">
+            <div id="test4" class="col s12 animated fadeInUp">
 
                 <ul class="collapsible">
                     <li>
-                        <div class="collapsible-header"><i class="mdi-hardware-desktop-windows"></i>Your total session details</div>
+                        <div class="collapsible-header"><i class="mdi-social-mood"></i>Social</div>
                         <div class="collapsible-body grey lighten-3">
-                            <div style="col s10">
-                                <div>
-                                    <canvas id="canvas" class="col s10" height="00px"></canvas>
-                                </div>
-                            </div>
+                            Coming Soon
 
 
 
                         </div>
                     </li>
+                    <li>
+                        <div class="collapsible-header"><i class="mdi-social-group-add"></i>Recruitment</div>
+                        <div class="collapsible-body grey lighten-3">
+                            Coming Soon
 
+
+
+                        </div>
+                    </li>
 
                 </ul>
 

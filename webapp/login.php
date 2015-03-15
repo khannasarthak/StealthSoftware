@@ -32,6 +32,16 @@ $num_row = mysqli_num_rows($result);
             exit(4); //multiple login attempt
 		}
 
+$query="SELECT * FROM `users` WHERE `contact` = '$username' AND `password` = '$password';";
+$result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
+$num_row = mysqli_num_rows($result);
+
+		$row=mysqli_fetch_array($result);
+		if( $num_row ==0 ) {
+            echo 5;
+            exit(5); //wrong username or password
+		}
+
 $query="INSERT INTO `stealth`.`loggedon` (`user`, `system`, `time`) VALUES ('$username', '$system', CURRENT_TIMESTAMP);";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 $query = "SELECT `uname`,`level` FROM users WHERE contact='$username' AND password='$password'";

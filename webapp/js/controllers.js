@@ -355,6 +355,7 @@ stealthApp.controller('pricingTable',
           });
         }
     $scope.getPricing();
+    $scope.getBalance();
 
     });
 
@@ -429,7 +430,7 @@ stealthApp.controller('usersOnlineTable',
     });
 
 stealthApp.controller('products',
-    function ($scope, $http, $interval) {
+    function ($scope, $http, $interval, $rootScope) {
 
     $scope.products={};
 
@@ -459,6 +460,25 @@ stealthApp.controller('products',
               } else {
                   toast('POST failed', 4000);
               }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+
+        }
+        
+        $scope.order=function(product){
+          
+          $http.post('meter.php', {
+              "number": $rootScope.localContact,
+                "amount":product.price
+          }).
+          success(function (data, status, headers, config) {
+              toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Product ordered successfully</span>', 4000);
+
+                 
+              
           }).
           error(function (data, status, headers, config) {
               // called asynchronously if an error occurs
@@ -622,3 +642,72 @@ default: $time= "Wrong Cycle Type";
 
 
     });
+
+stealthApp.controller('changePassword',
+    function ($scope, $http, $interval, $rootScope) {
+    
+    $scope.newPassSubmit=function(){
+    $new=$.md5($scope.newPwd1);
+        $old=$.md5($scope.oldPwd);
+        
+        $http.post('password.php', {
+              "contact": $rootScope.localContact,
+                "old":$old,
+            "newpwd":$new
+          }).
+          success(function (data, status, headers, config) {
+          
+              if(data==1)
+              {
+              toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Password change successful</span>', 4000);
+              }
+            else if(data==2){
+            toast('<i class=&quot;mdi-action-done green-text&quot;></i><span>Old password is wrong</span>', 4000);
+            }
+          }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+    }
+});
+
+stealthApp.controller('sessionsInfo',
+    function ($scope, $http, $interval, $rootScope) {
+    
+    $scope.getSessions=function(){
+        
+        $http.post('getSessions.php', {
+              "contact": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          $scope.sessions = angular.fromJson(data);
+              }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+    }
+    
+    $scope.getSessions();
+});
+
+stealthApp.controller('bills',
+    function ($scope, $http, $interval, $rootScope) {
+    
+    $scope.getBills=function(){
+        
+        $http.post('billing.php', {
+              "number": $rootScope.localContact
+          }).
+          success(function (data, status, headers, config) {
+          $scope.bills = angular.fromJson(data);
+              }).
+          error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+          });
+    }
+    
+    $scope.getBills();
+});

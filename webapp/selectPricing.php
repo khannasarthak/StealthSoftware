@@ -59,7 +59,7 @@
                                             <td>&#8377;{{single.amount}}</td>
                                             <td>{{single.cycle}}</td>
                                             <td>{{single.timevalue}}</td>
-                                            <td ng-if="balance<=single.amount"><a class="waves-effect waves-light btn" ng-click="select(single,1)"><i class="mdi-action-done white-text"></i></a>
+                                            <td ng-if="balance>=single.amount"><a class="waves-effect waves-light btn" ng-click="select(single,1)"><i class="mdi-action-done white-text"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -1,13 +1,10 @@
 <?php 
-
 $params = json_decode(file_get_contents('php://input'));
 
-
-$contact=$params->number;
-
+$user=$params->contact;
 $mysqli=mysqli_connect('localhost','root','password','stealth');
 
-$query = "SELECT `sno`, `time`, `amount`, `billedUnits`, `pricingCode` FROM `bills` WHERE `user` = '$contact';";
+$query = "SELECT `time`, `amount`, `hours` FROM `bills` WHERE `user` = '$user';";
 $rows=array();
 
 $result = mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));

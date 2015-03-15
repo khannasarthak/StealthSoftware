@@ -10,6 +10,7 @@
 
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.md5.js"></script>
 
 
 
@@ -133,7 +134,7 @@
         <div class="row">
             <div id="test1" class="col s12 animated fadeInUp">
                 <ul class="collapsible" data-collapsible="accordion">
-                    <li>
+                   
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-lock-outline"></i>Change Password</div>
                         <div class="collapsible-body grey lighten-3">
@@ -141,21 +142,26 @@
 
 
 
-                            <div class="row" ng-controller="newUser">
+                            <div class="row" ng-controller="changePassword">
                                 <div class="container">
                                     <form novalidate class="col s12">
 
 
-
+<div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="password" type="password" ng-model="oldPwd">
+                                                <label for="password">Old Password</label>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <input id="password" type="password" ng-model="userPwd">
+                                                <input id="password" type="password" ng-model="newPwd1">
                                                 <label for="password">New Password</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s6">
-                                                <input id="password" type="password" ng-model="userPwd">
+                                                <input id="password" type="password" ng-model="newPwd2">
                                                 <label for="password">Confirm New Password</label>
                                             </div>
                                         </div>
@@ -163,19 +169,13 @@
 
                                         <div class="row">
                                             <div class="col s4">
-                                                <button ng-click="newUserSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
+                                                <button ng-disabled="newPwd1!=newPwd2" ng-click="newPassSubmit()" class="btn waves-effect waves-light" type="submit" id="submit" value="Submit">SUBMIT
                                                     <i class="mdi-content-send right"></i>
                                                 </button>
-                                            </div>
-                                            <div class="col s4">
-                                                <a class="waves-effect waves-light btn" ng-click="clear()">CLEAR<i class="mdi-content-clear right"></i></a>
                                             </div>
                                         </div>
 
                                     </form>
-                                    <div class="row">
-                                        {{newUser.error}}
-                                    </div>
                                 </div>
                             </div>
 
@@ -192,35 +192,23 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-action-history"></i>Session logs</div>
                         <div class="collapsible-body grey lighten-3">
-                            <div class="row">
+                            <div class="row" ng-controller="sessionsInfo">
                                 <table class="hoverable centered">
                                     <thead>
                                         <tr>
                                             <th>Sno</th>
-                                            <th data-field="id">Price</th>
-                                            <th data-field="name">Cycle</th>
-                                            <th data-field="price">Period</th>
+                                            <th data-field="id">Date</th>
+                                            <th data-field="name">Session</th>
+                                            <th>Amount</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Alvin</td>
-                                            <td>Eclair</td>
-                                            <td>$0.87</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Alan</td>
-                                            <td>Jellybean</td>
-                                            <td>$3.76</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Jonathan</td>
-                                            <td>Lollipop</td>
-                                            <td>$7.00</td>
+                                        <tr ng-repeat="session in sessions">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{session.time}}</td>
+                                            <td>{{session.hours}}</td>
+                                            <td>{{session.amount}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -231,35 +219,26 @@
                         <li>
                         <div class="collapsible-header"><i class="mdi-editor-format-list-bulleted"></i>Bills</div>
                         <div class="collapsible-body grey lighten-3">
-                            <div class="row">
+                            <div class="row" ng-controller="bills">
                                 <table class="hoverable centered">
+                                    <table class="hoverable centered">
                                     <thead>
                                         <tr>
                                             <th>Sno</th>
-                                            <th data-field="id">Price</th>
-                                            <th data-field="name">Cycle</th>
-                                            <th data-field="price">Period</th>
+                                            <th data-field="id">Date</th>
+                                            <th data-field="name">Units</th>
+                                            <th>Amount</th>
+                                            <th>Plan</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Alvin</td>
-                                            <td>Eclair</td>
-                                            <td>$0.87</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Alan</td>
-                                            <td>Jellybean</td>
-                                            <td>$3.76</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Jonathan</td>
-                                            <td>Lollipop</td>
-                                            <td>$7.00</td>
+                                        <tr ng-repeat="bill in bills">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{bill.time}}</td>
+                                            <td>{{bill.billedUnits}}</td>
+                                            <td>{{bill.amount}}</td>
+                                            <td>{{bill.pricingCode}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -277,33 +256,28 @@
                     <li>
                         <div class="collapsible-header"><i class="mdi-social-cake"></i>Food and Drinks</div>
                         <div class="collapsible-body grey lighten-3">
-                            <table class="hoverable centered">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Time</th>
-                                        <th data-field="name">Plan Name</th>
-                                        <th data-field="price">Amount</th>
-                                    </tr>
-                                </thead>
+                            <div class="row" ng-controller="products">
+                                <table class="hoverable centered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th data-field="id">Product</th>
+                                            <th data-field="price">Price</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        <tr ng-repeat="product in products">
+                                            <td>{{$index + 1}}</td>
+                                            <td>{{product.name}}</td>
+                                            <td>{{product.price}}</td>
+                                            <td><a class="waves-effect waves-light btn" ng-click="order(product)"><i class="mdi-action-add-shopping-cart"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </li>
                     
